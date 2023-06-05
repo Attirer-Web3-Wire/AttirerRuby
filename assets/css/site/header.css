@@ -1,6 +1,6 @@
 .site-header {
     z-index: 80;
-    padding: 0 30px;
+    padding: 3px 20px;
     background-color: var(--white-color);
     box-shadow: var(--shadow-base);
 }
@@ -30,7 +30,9 @@
 }
 
 .logo-image {
-    max-height: 40px;
+    width: 185px;
+    height: auto;
+    /* max-height: 50px; */
 }
 
 .logo-text {
@@ -43,6 +45,9 @@
 
 .nav-list {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 9px;
 }
 
 .menu-item {

@@ -1,6 +1,7 @@
 .container {
     margin-right: auto;
     margin-left: auto;
+    padding-top: 5px;
     padding-right: 15px;
     padding-left: 15px;
 }

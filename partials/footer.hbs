@@ -1,13 +1,43 @@
 <footer class="site-footer">
-    <div class="container">
-        <div class="footer-inner">
-                <section class="copyright">
-                    <a href="{{@site.url}}" rel="copyright"><strong>{{@site.title}}</strong></a> &copy; {{date format="YYYY"}}
-                </section>
-                 <section class="poweredby">
-                   Powered by:&nbsp;<a href="https://ghost.org/" target="_blank"><strong>Ghost</strong></a>
-                    &nbsp;-&nbsp;Theme:&nbsp;<a href="https://github.com/gboul/DarkRuby"><strong>Dark Ruby</strong></a>
-                </section>
-        </div>
+    <script src="https://kit.fontawesome.com/97194d52e7.js" crossorigin="anonymous"></script>
+    <div class="footer-inner">
+        {{> logo}}
+
+        <ul class="nav-list u-plain-list spaced-list">
+            <li class="social-icon">
+                <a href="https://twitter.com/AttirerWeb3Wire">
+                    <img src="{{asset 'images/twitter.svg'}}" width="25px" height="25px">
+                </a>
+            </li>
+            <li class="social-icon">
+                <a href="https://www.facebook.com/AttirerAgency">
+                    <img src="{{asset 'images/facebook.svg'}}" width="25px" height="25px">
+                </a>
+            </li>
+            <li class="social-icon">
+                <a href="https://www.instagram.com/attirerweb3wire/">
+                    <img src="{{asset 'images/instagram.svg'}}" width="25px" height="25px">
+                </a>
+            </li>
+            <li class="social-icon">
+                <a href="https://www.linkedin.com/company/attirer/">
+                    <img src="{{asset 'images/linkedin.svg'}}" width="25px" height="25px">
+                </a>
+            </li>
+            <li class="social-icon">
+                <a href="/latest/rss/">
+                    <img src="{{asset 'images/rss.svg'}}" width="25px" height="25px">
+                </a>
+            </li>
+        </ul>
+
+        <nav class="secondary-navigation hidden-xs hidden-sm hidden-md">
+            {{navigation type="secondary"}}
+        </nav>
+
+        <section class="poweredby">
+            Powered by:&nbsp;<a href="https://ghost.org/" target="_blank"><strong>Ghost</strong></a>
+            &nbsp;-&nbsp;Theme:&nbsp;<a href="https://github.com/gboul/DarkRuby"><strong>Ruby</strong></a>
+        </section>
     </div>
 </footer>

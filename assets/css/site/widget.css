@@ -3,7 +3,7 @@
     background-color: var(--white-color);
 }
 
-.widget + .widget {
+.widget+.widget {
     margin-top: 30px;
 }
 
@@ -22,7 +22,7 @@
     text-transform: uppercase;
 }
 
-.widget-tags .tag + .tag {
+.widget-tags .tag+.tag {
     margin-top: 5px;
 }
 
@@ -36,6 +36,7 @@
     font-family: var(--font-alt);
     font-size: 16px;
     font-weight: 600;
+    color: #b4a7d6;
 }
 
 .widget-tags .tag-count {
@@ -56,7 +57,7 @@
     align-items: center;
 }
 
-.widget-recent .recent + .recent {
+.widget-recent .recent+.recent {
     margin-top: 20px;
 }
 

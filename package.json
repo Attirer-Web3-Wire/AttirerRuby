@@ -1,6 +1,6 @@
 {
-    "name": "ruby-myblog",
-    "description": "A Ghost theme",
+    "name": "attirer-dark-theme-13",
+    "description": "theme for attirer web3 wire based on dark ruby",
     "version": "1.0.0",
     "engines": {
         "ghost": ">=3.0.0",
@@ -18,7 +18,14 @@
         "ghost-theme"
     ],
     "config": {
-        "posts_per_page": 9,
+        "custom": {
+            "number_of_editors_picks_posts": {
+                "type": "text",
+                "default": "3",
+                "group": "homepage"
+            }
+        },
+        "posts_per_page": 15,
         "image_sizes": {
             "xs": {
                 "width": 150
