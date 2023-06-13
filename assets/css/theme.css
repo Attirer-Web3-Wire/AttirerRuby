@@ -16,7 +16,7 @@
    --darkmode: #151515;
 
    --shadow-base: 0 0 30px rgba(0, 0, 0, .35);
-   --heading-family: 'Roboto';
+   --heading-family: "Source Serif Pro", Georgia, serif;
 }
 
 @media (min-width: 1440px) {
@@ -88,7 +88,7 @@ code {
 }
 
 .post-wrapper {
-   background-color: var(--darkslate);
+   background-color: transparent;
 }
 
 a.post-title-link {
@@ -105,11 +105,11 @@ a.post-title-link {
 }
 
 .post-footer {
-   background-color: var(--lightgrey);
+   background-color: transparent;
 }
 
 .post-footer a {
-   color: var(--primary-text-color);
+   color: #f2f2f2;
 }
 
 span.post-card-meta-date {
@@ -121,8 +121,8 @@ span.post-card-meta-date {
 
 span.post-card-meta-tag a,
 .widget-tags .tag-count {
-   background-color: var(--blue);
-   color: var(--primary-text-color);
+   background-color: var(--primary-color);
+   color: black;
 }
 
 .widget {
@@ -169,6 +169,7 @@ span.post-card-meta-tag a,
 }
 
 .widget-recent a.post-title-link {
+   white-space: normal;
    font-family: var(--font-alt);
 }
 

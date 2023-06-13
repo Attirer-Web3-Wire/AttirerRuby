@@ -1,5 +1,5 @@
 {
-    "name": "attirer-dark-theme-13",
+    "name": "attirer-dark-theme-29",
     "description": "theme for attirer web3 wire based on dark ruby",
     "version": "1.0.0",
     "engines": {
@@ -70,5 +70,8 @@
         "stylelint": "^13.7.1",
         "stylelint-config-standard": "^20.0.0",
         "stylelint-order": "^4.1.0"
+    },
+    "dependencies": {
+        "evil-icons": "^1.10.1"
     }
 }
