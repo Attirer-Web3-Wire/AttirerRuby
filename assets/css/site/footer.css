@@ -13,6 +13,10 @@
     font-size: 13px;
 }
 
+.poweredby {
+    font-size: 12.8px;
+    font-weight: 600;
+}
 
 .social-icon {
     display: flex;

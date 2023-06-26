@@ -1,3 +1,107 @@
+/*PArt concerning new header*/
+
+@media (max-width: 767px) {
+    .new-header .top-header {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .new-header .top-header .top-right .button-styled-left {
+        display: none;
+    }
+
+    .new-header .top-header {
+        justify-content: space-between;
+    }
+
+    .site .new-header .top-header .top-left {
+        margin-left: 0;
+    }
+
+    .site .new-header .top-header .top-right {
+        margin-left: 0;
+    }
+}
+
+
+@media(max-width:900px) {
+    .new-header .top-header .top-left {
+        margin-left: 37%;
+    }
+}
+
+
+.new-header {
+    display: flex;
+    flex-direction: column;
+}
+
+.top-header {
+    border-bottom: .5px solid #303030;
+    padding: 15px 100px;
+    display: flex;
+
+    justify-content: normal;
+}
+
+.bottom-header {
+    border-bottom: .5px solid #303030;
+    display: flex;
+    justify-content: center;
+}
+
+.top-left {
+    margin-left: 43%;
+}
+
+.top-right {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+}
+
+.button-styled-left {
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.button-styled-left:hover {
+    text-decoration: underline;
+}
+
+.button-styled-right {
+    border-radius: 5px;
+    color: black;
+    padding: 4px 12px;
+    background-color: #b4a7d6;
+    font-weight: 500;
+    font-size: 14.5px;
+}
+
+
+.bottom-header li {
+    text-decoration: none;
+}
+
+.bottom-header li:hover {
+    text-decoration: underline;
+}
+
+
+.bottom-header ul::-webkit-scrollbar {
+    display: none;
+}
+
+.bottom-header ul {
+    padding: 16px 0px;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    justify-content: flex-start;
+}
+
+/*Part concerning the original footer and header*/
 .site-header {
     z-index: 80;
     padding: 3px 20px;
@@ -57,7 +161,9 @@
     font-weight: 700;
     letter-spacing: 0.5px;
     text-decoration: underline;
+    flex-shrink: 0;
 }
+
 
 .menu-item:hover {
     text-decoration: none;

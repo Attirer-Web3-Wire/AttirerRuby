@@ -1,5 +1,5 @@
 {
-    "name": "attirer-dark-theme-36",
+    "name": "attirer-dark-theme-1",
     "description": "theme for attirer web3 wire based on dark ruby",
     "version": "1.0.0",
     "engines": {
@@ -18,6 +18,16 @@
         "ghost-theme"
     ],
     "config": {
+        "card_assets": {
+            "exclude": [
+                "button",
+                "blockquote",
+                "bookmark",
+                "header",
+                "image",
+                "gallery"
+            ]
+        },
         "custom": {
             "number_of_editors_picks_posts": {
                 "type": "text",
