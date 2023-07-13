@@ -1,4 +1,11 @@
-.kg-width-wide,
+.post-content .kg-header-card-header {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    font-size: 40px;
+    letter-spacing: -.5px;
+}
+
+/* .kg-width-wide,
 .kg-width-full {
     margin-right: -30px;
     margin-left: -30px;
@@ -92,7 +99,7 @@
     height: 20px;
 }
 
-/* These classes will be deprecated. Keep them for GScan validation. */
+
 .kg-bookmark-author,
 .kg-bookmark-publisher {
     display: inline;
@@ -141,3 +148,5 @@
 .kg-header-card-header {
     font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
 }
+
+*/

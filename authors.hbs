@@ -1,0 +1,16 @@
+{{!< default}} <header class='c-page-header'>
+    <div class='o-grid o-grid--2-columns'>
+        <div>
+            <h1 class='c-topper__headline u-font-headline u-font-family-sansSerif'>Authors @ Attirer</h1>
+        </div>
+    </div>
+    </header>
+
+
+    <div class='js-grid o-grid o-grid--3-columns'>
+        {{#get 'authors' limit='all'}}
+        {{#foreach authors}}
+        {{> card-author }}
+        {{/foreach}}
+        {{/get}}
+    </div>

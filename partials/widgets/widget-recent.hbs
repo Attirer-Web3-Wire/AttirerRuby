@@ -6,7 +6,10 @@
     <div class="recent-posts">
         {{#foreach recents visibility="all"}}
         <article class="recent">
-            {{> post-header tag="h5" hide_tag=true show_date=true}}
+            <h5 class="widget-eh">
+                <a class="post-title-link" href="{{url}}">{{title}}</a>
+            </h5>
+            {{> post-date}}
         </article>
         {{/foreach}}
     </div>

@@ -1,16 +1,20 @@
-{{!< default}}
-
-<div class="container">
+{{!< default}} <div class="container">
+    {{!-- Single Author Page --}}
     {{#author}}
-        <div class="term-author">
-            <div class="author-image-placeholder u-placeholder">
-                <img class="author-image lazyload u-object-fit"
-                    data-src="{{img_url profile_image size="xs"}}"
-                    src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-                    alt="{{name}}">
-            </div>
-            <h1 class="author-name">{{name}}</h1>
+    <div class="term-author">
+        <div class="author-image-placeholder u-placeholder">
+            <img class="author-image lazyload u-object-fit" data-src="{{img_url profile_image size=" xs"}}"
+                src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="{{name}}">
         </div>
+        <h1 class="author-name">{{name}}</h1>
+    </div>
+    <div class="author-bio">
+        {{ bio }}
+    </div>
     {{/author}}
-    {{> list}}
-</div>
+    <div class="post-feed-2 post-feed">
+        {{#foreach posts}}
+        {{> "loop"}}
+        {{/foreach}}
+    </div>
+    </div>

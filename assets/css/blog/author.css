@@ -2,7 +2,14 @@
     display: flex;
     margin-top: 30px;
     padding: 30px 20px;
-    background-color: var(--white-color);
+    background-color: #222;
+    width: 580px;
+}
+
+.author-container-top-level {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 
 .author-image-placeholder {
@@ -11,6 +18,10 @@
     width: 70px;
     height: 70px;
     border-radius: 50%;
+}
+
+.post-feed-2 {
+    margin-top: 40px;
 }
 
 .author-wrapper {
@@ -32,8 +43,9 @@
     display: flex;
     align-items: center;
     margin-bottom: 0;
-    font-size: 18px;
-    font-weight: 800;
+    font-family: 'Poppins';
+    font-size: 15px;
+    font-weight: 600;
     cursor: pointer;
 }
 

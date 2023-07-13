@@ -1,0 +1,52 @@
+.o-grid {
+    width: 100%;
+    margin: auto;
+    display: grid;
+    max-width: 1400px;
+    padding: 0 20px;
+}
+
+@media (min-width: 40em) {
+    .o-grid--2-columns {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+
+.c-topper__headline {
+    font-family: 'Poppins';
+    font-size: 28px;
+    line-height: 32px;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+@media (min-width: 64em) {
+    .c-topper__headline {
+        font-size: 40px;
+        line-height: 48px;
+        font-weight: 600;
+    }
+}
+
+@media (min-width: 64em) {
+    .o-grid {
+        padding: 0 32px;
+    }
+}
+
+@media (min-width: 40em) {
+    .o-grid--3-columns {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 64em) {
+    .o-grid--3-columns {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+.o-grid[class*=-columns] {
+    grid-gap: 32px;
+}

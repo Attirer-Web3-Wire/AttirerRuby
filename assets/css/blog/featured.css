@@ -1,6 +1,7 @@
 .post-feed .featured {
     position: relative;
     min-height: 350px;
+    background-color: rgb(0 0 0 / 13%);
 }
 
 .post-feed .featured::before {
@@ -13,7 +14,7 @@
     background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
 }
 
-.post-feed .featured > .post-image {
+.post-feed .featured>.post-image {
     z-index: -1;
 }
 

@@ -19,6 +19,48 @@
    --heading-family: "Source Serif Pro", Georgia, serif;
 }
 
+
+.card-article {
+   width: 350px;
+   height: 379.68px;
+}
+
+.article-wrapper {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.article-post {
+   width: 50%;
+}
+
+@media only screen and (max-width: 1000px) {
+   .article-post {
+      width: 60%;
+   }
+}
+
+@media only screen and (max-width: 800px) {
+   .article-post {
+      width: 70%;
+   }
+}
+
+
+@media only screen and (max-width: 700px) {
+   .article-post {
+      width: 80%;
+   }
+}
+
+
+@media only screen and (max-width: 500px) {
+   .article-post {
+      width: 90%;
+   }
+}
+
 @media (min-width: 1440px) {
    .container {
       max-width: 1400px;
@@ -112,9 +154,15 @@ a.post-title-link {
    color: #f2f2f2;
 }
 
+.left-marg {
+   margin-left: auto;
+}
+
 span.post-card-meta-date {
    float: right;
-   color: var(--lightgrey);
+   margin-top: 1.8px;
+   margin-left: 10px;
+   color: white;
    font-style: italic;
    font-size: 0.75rem;
 }

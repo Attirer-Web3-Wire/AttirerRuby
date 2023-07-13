@@ -1,37 +1,76 @@
-{{!< default}}
+{{!< default}} {{#post}} <div class="article-wrapper">
+   {{!-- {{post_class}} --}}
+   <article class="article-post {{#unless feature_image}} no-image{{/unless}} single">
+      {{> tags}}
+      {{> post-header}}
+      {{#if custom_excerpt}}
+      <p class='post-excerpt'>{{ custom_excerpt }}</p>
+      {{/if}}
 
-<div class="container">
-   <div class="row">
-      <div class="content-column col-lg-9">
-         <div class="content-area">
-            <main class="site-main">
-               {{#post}}
-                  <article class="{{post_class}}{{#unless feature_image}} no-image{{/unless}} single">
-                     {{> post-header tag="h1" hide_link=true hide_tag=true}}
-                     <div class="post-meta">
-                        <time class="post-meta-date" datetime="{{date format="YYYY-MM-DD"}}">
-                           {{date published_at}}
-                        </time>
-                        <span class="post-meta-length">{{reading_time}}</span>
-                     </div>
-                     {{> post-media}}
-                     <div class="post-wrapper">                       
-                        <div class="post-content u-text-format">
-                           {{content}}
-                        </div>
-                        {{> tags}}
-                        {{> share}}
-                     </div>
-                  </article>
-                  {{> author}}
-                  {{> post-navigation}}
-                  {{> comment}}
-               {{/post}}
-            </main>
+      {{!-- post-meta-data section --}}
+      <div class="post-meta-section">
+         <div class="author-date-rt">
+            {{> author}}
+
          </div>
+         <div class="last-updated">
+            <p class="date-published" style="margin-top: 3px;">Published on {{date published_at}}</p>
+            <p class="reading-time">{{reading_time}}</p>
+         </div>
+
+         <ul class="left-marg nav-list u-plain-list spaced-list">
+            <li class="social-icon">
+               <a href="https://twitter.com/share?text={{ encode title }}&amp;url={{ url absolute='true' }}"
+                  onclick="window.open(this.href, 'twitter-share', 'width=550, height=235'); return false;">
+                  <img src="{{asset 'images/twitter.svg'}}" width="15px" height="15px">
+               </a>
+            </li>
+
+            <li class="social-icon">
+               <a href="https://www.facebook.com/sharer/sharer.php?u={{ url absolute='true' }}"
+                  onclick="window.open(this.href, 'facebook-share', 'width=580, height=296'); return false;">
+                  <img src="{{asset 'images/facebook.svg'}}" width="16px" height="16px">
+               </a>
+            </li>
+
+            <li class="social-icon">
+               <a href="http://pinterest.com/pin/create/button/?url={{ url absolute='true' }}&media={{ feature_image }}&description={{ encode title }}"
+                  onclick="window.open(this.href, 'pinterest-share', 'width=580, height=296'); return false;">
+                  <img src="{{asset 'images/pinterest.svg'}}" width="20px" height="20px">
+               </a>
+            </li>
+
+            <li class="social-icon">
+               <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ url absolute='true' }}&title={{ encode title }}"
+                  onclick="window.open(this.href, 'linkedin-share', 'width=580, height=296'); return false;">
+                  <img src="{{asset 'images/linkedin.svg'}}" width="15px" height="15px">
+               </a>
+            </li>
+
+            <li class="social-icon">
+               <a class='c-share__link' href="whatsapp://send?text={{ encode title }} {{ url absolute='true' }}">
+                  <img src="{{asset 'images/whatsapp.svg'}}" width="20px" height="20px">
+               </a>
+            </li>
+
+         </ul>
       </div>
-      <div class="sidebar-column col-lg-3 hidden-xs hidden-sm hidden-md">
-         {{> widgets/widgets}}
-      </div>      
+
+
+      {{> post-media}}
+      <div class="post-wrapper">
+         <div class="post-content u-text-format">
+            {{content}}
+         </div>
+
+         {{> share}}
+      </div>
+   </article>
+
+   {{!-- {{> post-navigation}} --}}
+   {{> comment}}
+   {{/post}}
+   {{> related}}
+
+
    </div>
-</div>

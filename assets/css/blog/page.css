@@ -1,10 +1,137 @@
-.page-template .single .post-header {
-    padding: 25px 30px;
-    border-bottom: 1px solid var(--light-gray-color);
+.service-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-@media (min-width: 992px) {
-    .page-template .content-column {
-        margin-left: 16.666667%;
-    }
+.kg-header-card {
+    background: black;
+    width: 100%;
+    text-align: center;
+    padding: 80px 60px;
+}
+
+.kg-header-card-header {
+    font-size: 38px;
+    font-family: 'Poppins';
+    font-weight: 500;
+}
+
+.kg-header-card-subheader {
+    font-family: 'Poppins';
+    font-size: 20px;
+    padding: 0 20%;
+    margin-bottom: 50px;
+}
+
+.kg-header-card-button,
+.kg-btn-accent {
+    border: 1.5px solid mediumpurple;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 15.9px;
+    font-weight: 600;
+    transition: .2s all ease-out;
+}
+
+.kg-header-card-button:hover,
+.kg-btn-accent:hover {
+    color: black;
+    background-color: mediumpurple;
+}
+
+
+
+.service-page>p {
+    width: 50%;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.service-page>h2 {
+    font-size: 28px;
+    width: 50%;
+    font-family: 'Poppins';
+    font-weight: 600;
+}
+
+.service-page>ul {
+    width: 50%;
+    font-size: 19px;
+}
+
+.kg-callout-card-purple {
+    width: 50%;
+    padding: 30px;
+    font-size: 17.5px;
+    margin-bottom: 20px;
+}
+
+.kg-button-card {
+    margin-bottom: 30px;
+}
+
+.service-page>blockquote {
+    width: 50%;
+    font-style: italic;
+}
+
+.service-page>h3 {
+    font-size: 24px;
+    font-weight: 600;
+    font-family: 'Poppins';
+    width: 50%;
+}
+
+/*Strategic partnerships page cards*/
+.kg-bookmark-container {
+    display: flex;
+    border: 1px solid #525252;
+    border-radius: 7px;
+    justify-content: space-between;
+}
+
+.kg-bookmark-card {
+    width: 50%;
+}
+
+.kg-bookmark-icon {
+    width: 25px;
+}
+
+.kg-bookmark-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.kg-bookmark-title {
+    font-size: 0.99rem;
+    font-weight: 600;
+}
+
+.kg-bookmark-description {
+    margin-top: 7px;
+}
+
+.kg-bookmark-metadata {
+    margin-top: 10px;
+    display: flex;
+    column-gap: 5px;
+}
+
+.kg-bookmark-thumbnail img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+
+.kg-bookmark-thumbnail {
+    position: relative;
+    min-width: 33%;
+    max-height: 100%;
 }
