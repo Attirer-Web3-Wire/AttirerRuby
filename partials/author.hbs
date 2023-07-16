@@ -2,7 +2,9 @@
     {{#foreach authors}}
     <div class="author-sect">
         <img class="avatar-image" src="{{img_url profile_image size=' xs'}}" alt="{{name}}">
-        <h4 class="author-name">{{name}}</h4>
+        <a class="author-oneline-url" href='{{ url }}'>
+            <h4 class="author-name">{{name}}</h4>
+        </a>
     </div>
     {{/foreach}}
 </div>

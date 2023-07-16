@@ -28,11 +28,10 @@
     }
 }
 
-
 .post-excerpt {
-    font-size: 24px;
     color: white;
     font-family: var(--heading-family);
+    font-size: 24px;
 }
 
 .author-date-rt {
@@ -41,6 +40,8 @@
 }
 
 .author-oneline-box {
+    display: flex;
+    gap: 10px;
     height: 30px;
 }
 
@@ -58,8 +59,8 @@
 }
 
 .last-updated {
-    border-left: 2.1px solid gray;
     padding-left: 10px;
+    border-left: 2.1px solid gray;
 }
 
 .date-published {
@@ -73,7 +74,7 @@
 }
 
 .last-updated p {
-    margin: 0
+    margin: 0;
 }
 
 .avatar-image {
@@ -92,40 +93,36 @@
     padding: 0 10px;
     background-color: mediumpurple;
     border-radius: 15px;
-
 }
 
 .card-title {
-    font-size: 22px;
-    font-family: var(--heading-family);
     color: white;
+    font-family: var(--heading-family);
+    font-size: 22px;
 }
 
 .post-tags .tag {
-    color: #000000;
+    color: #000;
 }
 
 .post-column {
     margin-bottom: 30px;
 }
 
-
-
 .widget-eh {
+    margin: 0;
+    color: white;
     font-family: var(--font-alt);
     font-size: 16px;
     font-weight: 600;
-    color: white;
-    margin: 0;
 }
 
 .title-cl {
     margin-top: 10px;
+    color: white;
     font-size: 36px;
     font-weight: 600;
-    color: white;
 }
-
 
 .post {
     display: flex;
@@ -158,7 +155,6 @@
 .post-header {
     margin-bottom: 10px;
 }
-
 
 .post .post-title {
     margin-bottom: 0;
@@ -194,7 +190,6 @@
     font-family: var(--heading-family);
     font-size: 24px;
     line-height: 27px;
-
 }
 
 .post-content {
@@ -217,7 +212,6 @@
 
 .post-tags .tag {
     font-weight: 700;
-
 }
 
 .post-tags .tag+.tag {

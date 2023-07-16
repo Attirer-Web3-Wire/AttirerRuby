@@ -1,3 +1,92 @@
+/** Code For Page Responsiveness**/
+
+@media only screen and (max-width: 1000px) {
+    .page-wrapper>.service-page>p {
+        width: 55%;
+    }
+
+    .page-wrapper>.service-page>h2 {
+        width: 55%;
+
+    }
+
+    .page-wrapper>.service-page>ul {
+        width: 55%;
+    }
+
+    .page-wrapper>.service-page>.kg-callout-card-purple {
+        width: 55%;
+    }
+
+    .page-wrapper>.service-page>blockquote {
+        width: 55%;
+    }
+
+    .page-wrapper>.service-page>h3 {
+        width: 55%;
+    }
+}
+
+
+@media only screen and (max-width: 600px) {
+    .page-wrapper>.service-page>p {
+        width: 80%;
+    }
+
+    .page-wrapper>.service-page>h2 {
+        width: 80%;
+
+    }
+
+    .page-wrapper>.service-page>ul {
+        width: 80%;
+    }
+
+    .page-wrapper>.service-page>.kg-callout-card-purple {
+        width: 80%;
+    }
+
+    .page-wrapper>.service-page>blockquote {
+        width: 80%;
+    }
+
+    .page-wrapper>.service-page>h3 {
+        width: 80%;
+    }
+}
+
+
+
+@media only screen and (max-width: 380px) {
+    .page-wrapper>.service-page>p {
+        width: 90%;
+    }
+
+    .page-wrapper>.service-page>h2 {
+        width: 90%;
+
+    }
+
+    .page-wrapper>.service-page>ul {
+        width: 90%;
+    }
+
+    .page-wrapper>.service-page>.kg-callout-card-purple {
+        width: 90%;
+    }
+
+    .page-wrapper>.service-page>blockquote {
+        width: 90%;
+    }
+
+    .page-wrapper>.service-page>h3 {
+        width: 90%;
+    }
+}
+
+
+
+/** Code For Page Styling**/
 .service-page {
     display: flex;
     flex-direction: column;
@@ -6,33 +95,33 @@
 }
 
 .kg-header-card {
-    background: black;
+    padding: 80px 5%;
     width: 100%;
     text-align: center;
-    padding: 80px 60px;
+    background: black;
 }
 
 .kg-header-card-header {
-    font-size: 38px;
     font-family: 'Poppins';
+    font-size: 38px;
     font-weight: 500;
 }
 
 .kg-header-card-subheader {
+    margin-bottom: 50px;
+    padding: 0 20%;
     font-family: 'Poppins';
     font-size: 20px;
-    padding: 0 20%;
-    margin-bottom: 50px;
 }
 
 .kg-header-card-button,
 .kg-btn-accent {
-    border: 1.5px solid mediumpurple;
     padding: 10px 20px;
-    border-radius: 25px;
+    border: 1.5px solid mediumpurple;
     font-size: 15.9px;
     font-weight: 600;
-    transition: .2s all ease-out;
+    border-radius: 25px;
+    transition: 0.2s all ease-out;
 }
 
 .kg-header-card-button:hover,
@@ -41,18 +130,17 @@
     background-color: mediumpurple;
 }
 
-
-
+/****/
 .service-page>p {
+    margin-top: 20px;
     width: 50%;
     font-size: 20px;
-    margin-top: 20px;
 }
 
 .service-page>h2 {
-    font-size: 28px;
     width: 50%;
     font-family: 'Poppins';
+    font-size: 28px;
     font-weight: 600;
 }
 
@@ -62,10 +150,10 @@
 }
 
 .kg-callout-card-purple {
-    width: 50%;
-    padding: 30px;
-    font-size: 17.5px;
     margin-bottom: 20px;
+    padding: 30px;
+    width: 50%;
+    font-size: 17.5px;
 }
 
 .kg-button-card {
@@ -78,22 +166,22 @@
 }
 
 .service-page>h3 {
+    width: 50%;
+    font-family: 'Poppins';
     font-size: 24px;
     font-weight: 600;
-    font-family: 'Poppins';
-    width: 50%;
 }
 
-/*Strategic partnerships page cards*/
+/* Strategic partnerships page cards */
 .kg-bookmark-container {
     display: flex;
+    justify-content: space-between;
     border: 1px solid #525252;
     border-radius: 7px;
-    justify-content: space-between;
 }
 
 .kg-bookmark-card {
-    width: 50%;
+    width: 45%;
 }
 
 .kg-bookmark-icon {
@@ -101,9 +189,9 @@
 }
 
 .kg-bookmark-content {
-    padding: 20px;
     display: flex;
     flex-direction: column;
+    padding: 20px;
 }
 
 .kg-bookmark-title {
@@ -116,8 +204,8 @@
 }
 
 .kg-bookmark-metadata {
-    margin-top: 10px;
     display: flex;
+    margin-top: 10px;
     column-gap: 5px;
 }
 
@@ -134,4 +222,56 @@
     position: relative;
     min-width: 33%;
     max-height: 100%;
+}
+
+.kg-card figcaption {
+    width: 100%;
+    padding-top: 8px;
+    color: #b3b3b3;
+    background-color: #181818;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: .25px;
+}
+
+@media (max-width: 930px) {
+    .kg-bookmark-container .kg-bookmark-content {
+        order: 2;
+    }
+
+    .kg-bookmark-container .kg-bookmark-thumbnail {
+        order: 1;
+        width: 100%;
+        min-height: 160px;
+    }
+}
+
+@media (max-width: 930px) {
+    .kg-bookmark-card .kg-bookmark-container {
+        flex-direction: column;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .service-page .kg-bookmark-card {
+        width: 55%;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .service-page .kg-bookmark-card {
+        width: 65%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .service-page .kg-bookmark-card {
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    .service-page .kg-bookmark-card {
+        width: 90%;
+    }
 }

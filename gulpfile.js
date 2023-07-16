@@ -1,4 +1,4 @@
-const {series, parallel, watch, src, dest} = require('gulp');
+const { series, parallel, watch, src, dest } = require('gulp');
 const pump = require('pump');
 
 // gulp plugins and utils
@@ -39,14 +39,14 @@ function hbs(done) {
 
 function css(done) {
     pump([
-        src('assets/css/*.css', {sourcemaps: true}),
+        src('assets/css/*.css', { sourcemaps: true }),
         postcss([
             easyimport,
             colorFunction(),
             autoprefixer(),
             cssnano()
         ]),
-        dest('assets/built/', {sourcemaps: '.'}),
+        dest('assets/built/', { sourcemaps: '.' }),
         livereload()
     ], handleError(done));
 }
@@ -56,10 +56,10 @@ function js(done) {
         src([
             'assets/js/lib/*.js',
             'assets/js/main.js'
-        ], {sourcemaps: true}),
+        ], { sourcemaps: true }),
         concat('main.min.js'),
         uglify(),
-        dest('assets/built/', {sourcemaps: '.'}),
+        dest('assets/built/', { sourcemaps: '.' }),
         livereload()
     ], handleError(done));
 }
@@ -70,7 +70,7 @@ function lint(done) {
         gulpStylelint({
             fix: true,
             reporters: [
-                {formatter: 'string', console: true}
+                { formatter: 'string', console: true }
             ]
         }),
         dest('assets/css/')

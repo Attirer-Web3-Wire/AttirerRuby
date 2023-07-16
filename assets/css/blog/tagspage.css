@@ -1,0 +1,14 @@
+.c-tag-card {
+    display: block;
+    padding: 24px;
+    border-left: 4px solid #b4a7d6;
+    background-color: #212121;
+    border-radius: 4px;
+}
+
+.c-tag-card__name {
+    margin-bottom: 0;
+    font-family: 'Poppins';
+    font-size: 18px;
+    line-height: 20px;
+}

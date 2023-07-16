@@ -1,0 +1,157 @@
+.newsfeed-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.feed-column {
+    width: 50%;
+}
+
+
+.c-page-header {
+    width: 50%;
+    border-bottom: 0.5px solid #303030;
+    margin-bottom: 40px;
+}
+
+
+.c-card-archive {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 40px;
+    grid-template-areas: "meta meta content content content content content content";
+}
+
+.c-card-archive__date {
+    font-size: 16px;
+    color: white;
+}
+
+.c-card-archive__date-mini {
+    display: none;
+    font-weight: 400;
+    color: #b3b3b3;
+}
+
+.c-card-archive__title {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 500;
+    color: white;
+}
+
+@media only screen and (max-width: 1000px) {
+    .newsfeed-container .feed-column {
+        width: 66%;
+    }
+
+    .newsfeed-container .c-page-header {
+        width: 66%;
+    }
+
+}
+
+@media only screen and (max-width:699px) {
+    .newsfeed-container .feed-column {
+        width: 66%;
+    }
+
+    .newsfeed-container .c-page-header {
+        width: 66%;
+    }
+
+    .feed-column .c-card-archive {
+        display: block;
+    }
+
+    .c-card-archive .c-card-archive__meta {
+        font-family: "Poppins";
+        font-size: 15px;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #b3b3b3;
+    }
+
+}
+
+/* .c-card-archive:first-child:before {
+    background-color: transparent;
+}
+
+.c-card-archive:before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1px;
+    position: absolute;
+    top: 0;
+    background-color: #303030;
+} */
+
+.c-card-archive__meta {
+    font-family: 'Poppins';
+    grid-area: meta;
+}
+
+.c-card-archive__content {
+    grid-area: content;
+}
+
+
+.c-card-archive--date-1+.c-card-archive--date-1 .c-card-archive__meta,
+.c-card-archive--date-10+.c-card-archive--date-10 .c-card-archive__meta,
+.c-card-archive--date-11+.c-card-archive--date-11 .c-card-archive__meta,
+.c-card-archive--date-12+.c-card-archive--date-12 .c-card-archive__meta,
+.c-card-archive--date-2+.c-card-archive--date-2 .c-card-archive__meta,
+.c-card-archive--date-3+.c-card-archive--date-3 .c-card-archive__meta,
+.c-card-archive--date-4+.c-card-archive--date-4 .c-card-archive__meta,
+.c-card-archive--date-5+.c-card-archive--date-5 .c-card-archive__meta,
+.c-card-archive--date-6+.c-card-archive--date-6 .c-card-archive__meta,
+.c-card-archive--date-7+.c-card-archive--date-7 .c-card-archive__meta,
+.c-card-archive--date-8+.c-card-archive--date-8 .c-card-archive__meta,
+.c-card-archive--date-9+.c-card-archive--date-9 .c-card-archive__meta,
+.c-card-archive--date-١+.c-card-archive--date-١ .c-card-archive__meta,
+.c-card-archive--date-١٠+.c-card-archive--date-١٠ .c-card-archive__meta,
+.c-card-archive--date-١١+.c-card-archive--date-١١ .c-card-archive__meta,
+.c-card-archive--date-١٢+.c-card-archive--date-١٢ .c-card-archive__meta,
+.c-card-archive--date-٢+.c-card-archive--date-٢ .c-card-archive__meta,
+.c-card-archive--date-٣+.c-card-archive--date-٣ .c-card-archive__meta,
+.c-card-archive--date-٤+.c-card-archive--date-٤ .c-card-archive__meta,
+.c-card-archive--date-٥+.c-card-archive--date-٥ .c-card-archive__meta,
+.c-card-archive--date-٦+.c-card-archive--date-٦ .c-card-archive__meta,
+.c-card-archive--date-٧+.c-card-archive--date-٧ .c-card-archive__meta,
+.c-card-archive--date-٨+.c-card-archive--date-٨ .c-card-archive__meta,
+.c-card-archive--date-٩+.c-card-archive--date-٩ .c-card-archive__meta {
+    display: none;
+}
+
+/* .c-post {
+    margin: 0 auto;
+    padding: 0 20px;
+    max-width: 708px;
+}
+
+.c-card-archive:first-child {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+@media (min-width: 40em) {
+    .c-card-archive {
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-rows: 1fr;
+        grid-column-gap: 40px;
+        grid-template-areas: "meta meta content content content content content content";
+    }
+}
+
+@media (min-width: 64em) {
+    .c-card-archive {
+        padding-top: 40px;
+        margin-top: 40px;
+    }
+} */

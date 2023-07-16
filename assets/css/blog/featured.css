@@ -14,7 +14,7 @@
     background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
 }
 
-.post-feed .featured>.post-image {
+.post-feed .featured > .post-image {
     z-index: -1;
 }
 

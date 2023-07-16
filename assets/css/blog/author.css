@@ -2,14 +2,19 @@
     display: flex;
     margin-top: 30px;
     padding: 30px 20px;
-    background-color: #222;
     width: 580px;
+    background-color: #222;
 }
 
 .author-container-top-level {
     display: flex;
-    justify-content: space-evenly;
     flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.author-oneline-url {
+    height: fit-content;
+    margin-top: 5px;
 }
 
 .author-image-placeholder {

@@ -1,9 +1,9 @@
 .o-grid {
-    width: 100%;
-    margin: auto;
     display: grid;
-    max-width: 1400px;
+    margin: auto;
     padding: 0 20px;
+    max-width: 1400px;
+    width: 100%;
 }
 
 @media (min-width: 40em) {
@@ -12,13 +12,12 @@
     }
 }
 
-
 .c-topper__headline {
+    margin-bottom: 40px;
     font-family: 'Poppins';
     font-size: 28px;
     line-height: 32px;
     font-weight: 700;
-    margin-bottom: 40px;
 }
 
 @media (min-width: 64em) {

@@ -24,6 +24,8 @@
 @import "blog/related.css";
 @import "blog/pagination.css";
 @import "blog/cardauthors.css";
+@import "blog/tagspage.css";
+@import "blog/newsfeed.css";
 @import "vendor/mdi.css";
 @import "vendor/lazyload.css";
 @import "vendor/pswp.css";

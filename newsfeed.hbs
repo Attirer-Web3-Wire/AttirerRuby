@@ -1,0 +1,27 @@
+{{!< default}} <div class='newsfeed-container'>
+    <header class='c-page-header'>
+        <div>
+            <h1 class='c-topper__headline u-font-headline u-font-family-sansSerif'>News Feed</h1>
+        </div>
+    </header>
+    <div class="feed-column">
+        {{#get 'posts' limit='all' as |posts|}}
+        {{#foreach posts}}
+        <div class='c-card-archive c-card-archive--date-{{date format="M"}}'>
+            <div class='c-card-archive__meta'>
+                <div class='c-card-archive__date u-type-uppercase'>{{ date format='MMMM YYYY' }}</div>
+            </div>
+
+            <div class='c-card-archive__content'>
+                <h2 class='c-card-archive__title'>
+                    <time class='c-card-archive__date-mini' datetime='{{ date format=' YYYY-MM-DD' }}'>{{ date
+                        format='D'
+                        }}:</time>
+                    <a href='{{ url }}' class='c-card-archive__url'>{{ title }}</a>
+                </h2>
+            </div>
+        </div>
+        {{/foreach}}
+        {{/get}}
+    </div>
+    </div>
