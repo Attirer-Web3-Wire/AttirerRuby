@@ -101,7 +101,7 @@ code {
 }
 
 .site-header {
-   
+
     position: fixed;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.85);
@@ -151,6 +151,19 @@ a.post-title-link {
 .left-marg {
     margin-left: auto;
 }
+
+@media only screen and (max-width: 1145px) {
+    .left-marg {
+        margin-left: 0;
+    }
+}
+
+/* @media only screen and (max-width: 1000px) {
+    .left-marg {
+        margin-left: auto;
+    }
+} */
+
 
 span.post-card-meta-date {
     float: right;
@@ -260,14 +273,6 @@ span.post-card-meta-tag a,
     /*   visibility: hidden; */
 }
 
-.u-text-format a,
-.u-text-format strong {
-    color: var(--lightgrey);
-}
-
-.u-text-format a {
-    border-bottom: 1px dashed;
-}
 
 .u-text-format pre {
     padding: 1em 1.2em;
@@ -282,7 +287,7 @@ span.post-card-meta-tag a,
     display: block;
 
     /* margin-top: none; */
-    height: 40vh;
+    height: 50vh;
     background-color: #212121;
 }
 

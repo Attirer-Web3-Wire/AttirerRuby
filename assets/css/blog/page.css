@@ -102,32 +102,67 @@
 }
 
 .kg-header-card-header {
-    font-family: 'Poppins';
-    font-size: 38px;
+    padding: 0 25%;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 40px;
     font-weight: 500;
+    line-height: 40px;
+}
+
+@media only screen and (max-width: 1000px) {
+    .kg-header-card-header {
+        padding: 0 15%;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .kg-header-card-header {
+        padding: 0 10%;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .kg-header-card-header {
+        padding: 0;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .kg-header-card {
+        padding: 80px 2%;
+    }
 }
 
 .kg-header-card-subheader {
     margin-bottom: 50px;
     padding: 0 20%;
-    font-family: 'Poppins';
-    font-size: 20px;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    line-height: 32px;
+    font-size: 24px;
+    color: white;
+    font-weight: 400;
+
 }
 
 .kg-header-card-button,
 .kg-btn-accent {
-    padding: 10px 20px;
-    border: 1.5px solid mediumpurple;
-    font-size: 15.9px;
-    font-weight: 600;
-    border-radius: 25px;
-    transition: 0.2s all ease-out;
-}
-
-.kg-header-card-button:hover,
-.kg-btn-accent:hover {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 500;
+    height: auto;
+    width: -moz-fit-content;
+    width: fit-content;
+    min-width: -moz-fit-content;
+    min-width: fit-content;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    padding: 16px 24px;
+    border-radius: 4px;
     color: black;
-    background-color: mediumpurple;
+    background-color: #fff;
 }
 
 /****/
