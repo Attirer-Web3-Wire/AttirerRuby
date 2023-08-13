@@ -1,0 +1,28 @@
+@media (prefers-color-scheme: dark) {
+	 :root.is-darkModeAdminSetting-enabled {
+		 --color-mode: 'dark';
+	}
+	 :root:not([data-user-color-scheme]).is-darkModeAdminSetting-enabled {
+		 --color-mode: 'dark';
+		 --color-accent: var(--dark-mode-accent-color);
+		 --color-text-primary: #fff;
+		 --color-text-secondary: #b3b3b3;
+		 --color-border-primary: #525252;
+		 --color-border-secondary: #303030;
+		 --color-background-primary: #181818;
+		 --color-background-secondary: #212121;
+--color-icon-primary:#707070;
+	}
+}
+ [data-user-color-scheme='dark'] {
+	 --color-mode: 'dark';
+	 --color-accent: var(--dark-mode-accent-color);
+	 --color-text-primary: #fff;
+	 --color-text-secondary: #b3b3b3;
+	 --color-border-primary: #525252;
+	 --color-border-secondary: #303030;
+	 --color-background-primary: #181818;
+	 --color-background-secondary: #212121;
+--color-icon-primary:#707070;
+}
+ 

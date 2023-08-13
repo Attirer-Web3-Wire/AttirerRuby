@@ -97,14 +97,6 @@
     text-transform: uppercase;
 }
 
-.u-text-format strong {
-    color: var(--dark-gray-color);
-}
-
-.u-text-format a {
-    color: var(--primary-color);
-}
-
 .u-text-format>*:first-child,
 .u-text-format>*:first-child>*:first-child {
     margin-top: 0 !important;

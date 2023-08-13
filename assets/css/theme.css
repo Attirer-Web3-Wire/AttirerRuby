@@ -16,6 +16,24 @@
     --darkmode: #151515;
     --shadow-base: 0 0 30px rgba(0, 0, 0, 0.35);
     --heading-family: "Source Serif Pro", georgia, serif;
+    --html-symbol-light: "☼";
+    --html-symbol-dark: "☾";
+--font-family-serif: "Source Serif Pro",Georgia,serif;
+    --font-family-sansSerif: "Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+
+    --color-text-button: var(--color-background-primary);
+    --color-background-button: var(--color-accent);
+}
+
+.top-most{
+display:flex;
+justify-content: center;
+overflow:hidden;
+}
+@media only screen and (max-width:1024px) {
+    .u-visible-on-desktop {
+        display: none;
+    }
 }
 
 .card-article {
@@ -80,28 +98,12 @@ h6 {
 }
 
 body {
-    color: var(--lightgrey);
-    background-color: var(--darkmode);
+    color: var(--color-text-primary);
+    background-color: var(--color-background-primary);
 }
 
-a,
-i,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-span,
-strong,
-pre,
-code {
-    color: var(--lightgrey);
-}
 
 .site-header {
-
     position: fixed;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.85);
@@ -129,7 +131,7 @@ code {
 }
 
 a.post-title-link {
-    color: var(--light-gray-color);
+    color: var(--color-text-primary);
 }
 
 .u-shadow {
@@ -174,16 +176,16 @@ span.post-card-meta-date {
     font-style: italic;
 }
 
-span.post-card-meta-tag a,
-.widget-tags .tag-count {
+/* span.post-card-meta-tag a, */
+/* .widget-tags .tag-count {
     color: black;
     background-color: var(--primary-color);
-}
+} */
 
-.widget {
+/* .widget {
     border: 1px solid rgba(0, 0, 0, 0.5);
     background-color: var(--darkergrey);
-}
+} */
 
 .off-canvas,
 .off-canvas .widget {
@@ -196,22 +198,16 @@ span.post-card-meta-tag a,
 }
 
 .widget-current-tag {
-    display: flex;
-    place-content: center;
+     margin: 0;
+color:var(--color-text-primary);
+background:var(--color-background-secondary);
+display:flex;
+flex-direction:column;
+gap:12px;
+border-radius:20px;
 }
 
-.widget-current-tag h2 {
-    margin: 0;
-    color: var(--blue);
-}
 
-.widget-tags .tag-name {
-    color: #b4a7d6;
-}
-
-.widget-tags .tag-name:hover {
-    color: #b4a7d6;
-}
 
 .widget-tags .widget-action {
     float: right;
@@ -288,7 +284,7 @@ span.post-card-meta-tag a,
 
     /* margin-top: none; */
     height: 50vh;
-    background-color: #212121;
+    background-color: var(--color-background-secondary);
 }
 
 .footer-inner {

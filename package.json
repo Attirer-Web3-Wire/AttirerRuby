@@ -1,5 +1,5 @@
 {
-    "name": "attirer-dark-theme-94",
+    "name": "attirer-dark-theme-1",
     "description": "theme for attirer web3 wire based on dark ruby",
     "version": "1.0.0",
     "engines": {
@@ -33,6 +33,17 @@
                 "type": "text",
                 "default": "3",
                 "group": "homepage"
+            },
+            "dark_mode_accent_color": {
+                "type": "color",
+                "default": "#F0A45C"
+            },
+            "enable_dark_mode": {
+                "type": "boolean",
+                "default": true
+            },
+            "dark_mode_publication_logo": {
+                "type": "image"
             }
         },
         "posts_per_page": 18,

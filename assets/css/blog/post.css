@@ -28,11 +28,6 @@
     }
 }
 
-.post-excerpt {
-    color: white;
-    font-family: var(--heading-family);
-    font-size: 24px;
-}
 
 .author-date-rt {
     display: flex;
@@ -91,7 +86,7 @@
 
 .tags-wrapper-pill {
     padding: 0 10px;
-    background-color: mediumpurple;
+    background-color: var(--primary-color);
     border-radius: 15px;
 }
 
@@ -119,7 +114,6 @@
 
 .title-cl {
     margin-top: 10px;
-    color: white;
     font-size: 40px;
     font-weight: 600;
     line-height: 48px;
@@ -145,7 +139,7 @@
     display: inline-block;
     margin-bottom: 8px;
     padding: 4px 8px;
-    color: var(--white-color);
+    color: black;
     font-size: 12px;
     line-height: 1;
     font-weight: 700;
@@ -188,7 +182,6 @@
 
 .post-excerpt {
     font-family: var(--heading-family);
-    color: #fff;
     font-size: 24px;
     line-height: 32px;
 }
@@ -201,7 +194,6 @@
 }
 
 .post-content p {
-    color: white;
     font-family: "Source Serif Pro", Georgia, serif;
 
     font-size: 20px;
@@ -213,7 +205,6 @@
     padding-left: 20px;
     font-style: italic;
     border-left: 2px solid #b4a7d6;
-    color: white;
     font-size: 20px;
     line-height: 32px;
 }
@@ -222,7 +213,6 @@
     font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
     font-size: 28px;
     line-height: 32px;
-    color: white;
 
 }
 
@@ -230,19 +220,16 @@
     font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
     font-size: 24px;
     line-height: 28px;
-    color: white;
     font-weight: 500;
 }
 
 .post-content h4 {
-    color: white;
     font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
     font-weight: 500;
 }
 
 .post-content a {
     text-decoration: underline;
-    color: #b4a7d6;
 }
 
 .post-tags {

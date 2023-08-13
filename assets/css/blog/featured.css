@@ -1,7 +1,6 @@
 .post-feed .featured {
     position: relative;
     min-height: 350px;
-    background-color: rgb(0 0 0 / 13%);
 }
 
 .post-feed .featured::before {

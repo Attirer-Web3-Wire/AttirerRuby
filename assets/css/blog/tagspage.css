@@ -2,7 +2,7 @@
     display: block;
     padding: 24px;
     border-left: 4px solid #b4a7d6;
-    background-color: #212121;
+    background-color: var(--color-background-secondary);
     border-radius: 4px;
 }
 

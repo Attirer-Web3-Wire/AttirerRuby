@@ -161,15 +161,27 @@
     overflow: hidden;
     padding: 16px 24px;
     border-radius: 4px;
-    color: black;
+    color: var(--color-text-button);
+    background-color: var(--color-background-button);
+}
+
+.kg-header-card-button{
+    color: #000;
     background-color: #fff;
 }
+
+.kg-btn-accent{
+color: var(--color-text-button);
+    background-color: var(--color-background-button);
+}
+
 
 /****/
 .service-page>p {
     margin-top: 20px;
     width: 50%;
     font-size: 20px;
+font-family:var(--font-family-serif);
 }
 
 .service-page>h2 {
@@ -177,6 +189,7 @@
     font-family: 'Poppins';
     font-size: 28px;
     font-weight: 600;
+font-family:var(--font-family-sansSerif);
 }
 
 .service-page>ul {
@@ -207,11 +220,23 @@
     font-weight: 600;
 }
 
+
+
+@media (min-width: 40em){
+.kg-bookmark-thumbnail img {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+}
+
+
+
+
 /* Strategic partnerships page cards */
 .kg-bookmark-container {
     display: flex;
     justify-content: space-between;
-    border: 1px solid #525252;
+    box-shadow: inset 0 0 0 0.5px var(--color-border-secondary);
     border-radius: 7px;
 }
 

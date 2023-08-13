@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="{{@site.locale}}">
+<html lang="{{@site.locale}}" class="{{#if @custom.enable_dark_mode}} is-darkModeAdminSetting-enabled {{/if}}">
 
 <head>
-   
+
    {{!-- Document Settings --}}
     <meta charset="utf-8">
     <meta name="HandheldFriendly" content="True" />
@@ -22,7 +22,24 @@
    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"> 
    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cherry+Cream+Soda&display=swap">
 
+  {{#if @custom.enable_dark_mode}}
+    {{> dark-mode-accent-color }}
+    {{> dark-mode-js }}
+  {{/if}}
+
+  <script>
+    var pagination_next_page_number       = '{{ pagination.next }}',
+        pagination_available_pages_number = '{{ pagination.pages }}',
+        pagination_loading_text           = '{{t "Loading" }}',
+        pagination_more_posts_text        = '{{t "Load More" }}',
+        dark_mode_label_text              = '{{t "Dark" }}',
+        light_mode_label_text             = '{{t "Light" }}';
+
+    document.documentElement.classList.add('js-on');
+  </script>
+
     {{ghost_head}}
+
 </head>
 
 <body class="{{body_class}}{{{block "body_class"}}}">

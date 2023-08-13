@@ -1,7 +1,7 @@
 .c-card-author {
     padding: 32px;
     width: 100%;
-    background-color: #2b2b2b;
+    background-color: var(--color-background-secondary);
     border-radius: 4px;
 }
 
@@ -15,7 +15,7 @@
 
 .c-card-author__bio {
     margin-top: 8px;
-    color: #b3b3b3;
+    color: var(--color-text-secondary);
     font-family: '';
     font-size: 16px;
     line-height: 24px;
@@ -24,7 +24,7 @@
 .c-card-author > * + * {
     margin-top: 20px;
     padding-top: 20px;
-    border-top: 0.5px solid #303030;
+    border-top: 0.5px solid var(--color-border-secondary)
 }
 
 .c-card-author__posts-title {

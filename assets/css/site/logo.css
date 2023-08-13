@@ -1,0 +1,32 @@
+/* @media (min-width: 40em){
+.c-logo {
+    margin: auto;
+}
+} */
+
+/* @media (min-width: 40em){
+.c-logo__img {
+    max-height: 48px;
+}
+} */
+
+.c-logo__img {
+    max-height: 44px;
+}
+
+.c-logo__dark {
+    display: none;
+}
+
+.u-block {
+    display: block;
+}
+
+
+[data-user-color-scheme=dark] .c-logo__light {
+    display: none;
+}
+
+[data-user-color-scheme=dark] .c-logo__dark {
+    display: block;
+}
