@@ -34,7 +34,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 45%;
     object-fit: cover;
 }
 
@@ -72,10 +72,13 @@
 
 .u-text-format h1 {
     font-size: 26px;
+font-weight: 600;
 }
 
 .u-text-format h2 {
-    font-size: 28px;
+   font-size: 28px;
+    font-weight: 600;
+    font-family: var(--font-family-sansSerif);
 }
 
 .u-text-format h3 {

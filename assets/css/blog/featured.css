@@ -10,12 +10,9 @@
     right: 0;
     bottom: 0;
     left: 0;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+    background:var(--color-card-background);
 }
 
-.post-feed .featured > .post-image {
-    z-index: -1;
-}
 
 .post-feed .featured .post-media .post-image {
     display: none;
@@ -42,18 +39,18 @@
     line-height: 1.2;
 }
 
-.post-feed .featured .post-title-link,
+/* .post-feed .featured .post-title-link,
 .post-feed .featured .post-excerpt,
 .post-feed .featured .post-link {
     color: var(--white-color);
-}
+} */
 
 .post-feed .featured .post-excerpt {
     display: none;
 }
 
 .post-feed .featured .post-footer {
-    border-color: rgba(255, 255, 255, 0.2);
+    border-color: var(--color-border-primary);
 }
 
 .post-feed .featured .post-author-image {

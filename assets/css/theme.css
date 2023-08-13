@@ -146,9 +146,9 @@ a.post-title-link {
     background-color: transparent;
 }
 
-.post-footer a {
+/* .post-footer a {
     color: #f2f2f2;
-}
+} */
 
 .left-marg {
     margin-left: auto;
@@ -171,7 +171,6 @@ span.post-card-meta-date {
     float: right;
     margin-top: 1.8px;
     margin-left: 10px;
-    color: white;
     font-size: 0.75rem;
     font-style: italic;
 }
