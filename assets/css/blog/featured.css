@@ -27,7 +27,7 @@
 
 .post-feed .featured .post-wrapper {
     display: flex;
-    align-items: flex-end;
+    align-items: flex-start;
 }
 
 .post-feed .featured .post-header {
