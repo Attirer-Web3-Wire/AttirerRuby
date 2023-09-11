@@ -3,3 +3,47 @@
     padding: 30px;
     background-color: var(--white-color);
 }
+.c-section-heading__title{
+font-size:xx-large;
+}
+
+.c-header__top-block .weglot-container{
+z-index:1;
+}
+
+.c-header__top-block .wg-drop.country-selector .wgcurrent {
+border-radius:20px;
+padding-left:5px;
+}
+
+.c-header__top-block .wg-drop.country-selector{
+border-radius:20px;
+background-color:var(--color-background-secondary);
+}
+
+.c-header__top-block .wg-drop.country-selector .wgcurrent{
+border:1px solid var(--color-border-secondary);
+}
+
+.c-header__top-block .country-selector a{
+color:var(--color-text-secondary);
+}
+
+[data-user-color-scheme=dark] .c-header__top-block .wg-drop.country-selector .wgcurrent:after{
+    background-image: url('../images/chevron-down-white.svg');
+}
+
+.c-header__top-block .wg-drop.country-selector ul{
+    background: var(--color-background-primary);
+    color: var(--color-text-primary);
+    border: 0.5px solid var(--color-border-secondary);
+    border-radius:5px;
+}
+
+.c-header__top-block .wg-drop.country-selector .wgcurrent:after{
+    height: 28px;
+}
+
+.c-header__top-block .wg-drop.country-selector a {
+height: 28px;
+}

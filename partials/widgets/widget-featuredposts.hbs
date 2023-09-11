@@ -1,11 +1,8 @@
 <div class="widget widget-recent">
-    <h4 class="widget-title">Editor's Picks</h4>
-    {{#get 'posts' filter='tags:[hash-editors-picks]' include='tags,authors' order='published_at desc'
-    limit=@custom.number_of_editors_picks_posts as |recents|}}
-    {{#if recents}}
-    <div class="recent-posts">
-        {{#foreach recents visibility="all"}}
-<div style="width:100%;height:150px;margin-top:15px;">
+    <h4 class="widget-title">Featured</h4>
+    {{#get 'posts' filter='featured:true' limit='10' as |featured|}}
+    {{#foreach featured visibility='all'}}
+        <div style="width:100%;height:150px;margin-top:15px;">
           <a
             class='featured-card__media m-b-sm'
             href='{{url}}'
@@ -18,15 +15,13 @@
           </a>
        
 </div>
-        <article class="recent" style="margin-top:10px;">
-
+   <article class="recent" style="margin-top:10px;">
             <h5 class="widget-eh">
                 <a class="post-title-link" href="{{url}}">{{title}}</a>
             </h5>
             {{> post-date}}
         </article>
-        {{/foreach}}
-    </div>
-    {{/if}}
-    {{/get}}
+
+  {{/foreach}}
+{{/get}}
 </div>

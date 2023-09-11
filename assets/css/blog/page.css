@@ -287,8 +287,8 @@ font-family:var(--font-family-sansSerif);
 .kg-card figcaption {
     width: 100%;
     padding-top: 8px;
-    color: #b3b3b3;
-    background-color: #181818;
+color:inherit;
+font-family:'Poppins';
     font-size: 14px;
     line-height: 16px;
     letter-spacing: .25px;

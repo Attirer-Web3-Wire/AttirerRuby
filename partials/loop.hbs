@@ -1,18 +1,15 @@
-<article class="{{post_class}}{{#unless feature_image}} no-image{{/unless}} featured u-shadow"
+<article class="featured u-shadow"
     onclick="window.open('{{url}}','_self')">
     {{!-- {{#if featured}} --}}
+<div class="image-holder-wrapper" style="width:100%;height:180px">
     <img class="post-image lazyload u-object-fit" data-src="{{img_url feature_image}}"
         src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-sizes="auto"
         alt="{{title}}">
+</div>
     {{!-- {{/if}} --}}
-    {{> post-media same_height=true ratio="rectangle"}}
+    {{!-- {{> post-media same_height=true ratio="rectangle"}} --}}
     <div class="post-wrapper">
         {{> card-header tag="h2"}}
-        {{#if excerpt}}
-        <div class="post-excerpt">
-            {{excerpt words="12"}}
-        </div>
-        {{/if}}
     </div>
     {{> post-footer}}
 </article>

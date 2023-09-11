@@ -11,7 +11,7 @@
 
 .c-page-header {
     width: 50%;
-    border-bottom: 0.5px solid #303030;
+    border-bottom: 0.5px solid var(--color-border-secondary);
     margin-bottom: 40px;
 }
 
@@ -26,13 +26,13 @@
 
 .c-card-archive__date {
     font-size: 16px;
-    color: white;
+    color: var(--color-text-primary);
 }
 
 .c-card-archive__date-mini {
     display: none;
     font-weight: 400;
-    color: #b3b3b3;
+    color: var(--color-text-primary);
 }
 
 .c-card-archive__title {
@@ -40,7 +40,7 @@
     font-size: 16px;
     line-height: 24px;
     font-weight: 500;
-    color: white;
+    color: var(--color-text-primary);
 }
 
 @media only screen and (max-width: 1000px) {
@@ -72,7 +72,7 @@
         font-size: 15px;
         margin-bottom: 20px;
         padding-bottom: 10px;
-        border-bottom: 1px solid #b3b3b3;
+        border-bottom: 1px solid var(--color-border-primary);
     }
 
 }

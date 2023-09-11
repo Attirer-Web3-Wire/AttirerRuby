@@ -1,16 +1,9 @@
 .post-feed .featured {
-    position: relative;
-    min-height: 350px;
-}
-
-.post-feed .featured::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background:var(--color-card-background);
+    
+    min-height: 100%;
+    display:flex;
+flex-direction:column;
+cursor:pointer;
 }
 
 
@@ -51,6 +44,7 @@
 
 .post-feed .featured .post-footer {
     border-color: var(--color-border-primary);
+margin-top:auto;
 }
 
 .post-feed .featured .post-author-image {
