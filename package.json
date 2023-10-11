@@ -46,8 +46,14 @@
                 "type": "image"
             }
         },
-        "posts_per_page": 18,
+        "posts_per_page": 21,
         "image_sizes": {
+            "card-image":{
+                "width":320
+            },
+            "xxs":{
+                "width":30
+            },
             "xs": {
                 "width": 150
             },

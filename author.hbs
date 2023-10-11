@@ -3,7 +3,7 @@
     {{#author}}
     <div class="term-author">
         <div class="author-image-placeholder u-placeholder">
-            <img class="author-image lazyload" data-src="{{img_url profile_image size=" xs"}}"
+            <img class="author-image lazyload" data-src="{{img_url profile_image size="xxs"}}"
                 src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="{{name}}">
         </div>
         <h1 class="author-name">{{name}}</h1>
@@ -11,6 +11,35 @@
     <div class="author-bio">
         {{ bio }}
     </div>
+        <div class='additional-links'>
+          {{#if twitter}}
+            <div style="display:flex; gap:2px;">
+            <img src="{{asset 'images/twitter_x.svg'}}" alt="twitter" width="20px" height="20px">
+            <a href='{{ twitter_url }}' class='u-link u-mr-8'>Twitter</a>
+            </div>
+          {{/if}}
+
+          {{#if facebook}}
+            <div style="display:flex; gap:2px;">
+            <img src="{{asset 'images/facebook.svg'}}" alt="website" width="20px" height="20px">
+            <a href='{{ facebook_url }}' class='u-link u-mr-8'>Facebook</a>
+            </div>
+          {{/if}}
+
+          {{#if website}}
+            <div style="display:flex; gap:2px;">
+            <img src="{{asset 'images/website.svg'}}" alt="website" width="20px" height="20px">
+            <a href='{{ website }}' class='u-link u-mr-8'>Website</a>
+            </div>
+          {{/if}}
+
+          {{#if location}}
+          <div style="display:flex; gap:2px;">
+            <img src="{{asset 'images/location.svg'}}" alt="location" width="20px" height="20px">
+            {{ location }}
+          </div>
+          {{/if}}
+        </div>
     {{/author}}
     <div class="post-feed-2 post-feed">
         {{#foreach posts}}

@@ -18,11 +18,10 @@
          </div>
 
          <ul class="left-marg nav-list u-plain-list spaced-list">
-            <li class="social-icon">
-               <a href="https://twitter.com/share?text={{ encode title }}&amp;url={{ url absolute='true' }}"
-                  onclick="window.open(this.href, 'twitter-share', 'width=550, height=235'); return false;">
-                  <img src="{{asset 'images/twitter.svg'}}" width="15px" height="15px">
-               </a>
+            <li class="social-icon" style="padding:7px">
+                <a href="https://twitter.com/intent/tweet?url={{url absolute="true"}}&text={{encode title}}">
+                    <img src="{{asset 'images/twitter_x.svg'}}" width="25px" height="25px">
+                </a>
             </li>
 
             <li class="social-icon">

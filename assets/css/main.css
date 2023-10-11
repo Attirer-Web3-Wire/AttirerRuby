@@ -1,5 +1,42 @@
+@import "general/normalize.css";
+@import "general/basics.css";
+@import "general/grid.css";
+@import "general/form.css";
+@import "general/button.css";
+@import "site/header.css";
+@import "site/social.css";
+@import "site/layout.css";
+@import "site/widget.css";
+@import "site/term.css";
+@import "site/burger.css";
+@import "site/off-canvas.css";
+@import "site/footer.css";
+@import "site/error.css";
+@import "blog/post.css";
+@import "blog/page.css";
+@import "blog/featured.css";
+@import "blog/single.css";
+@import "blog/share.css";
+@import "blog/author.css";
+@import "blog/authors.css";
+@import "blog/navigation.css";
+@import "blog/comment.css";
+@import "blog/related.css";
+@import "blog/pagination.css";
+@import "blog/cardauthors.css";
+@import "blog/tagspage.css";
+@import "blog/newsfeed.css";
+@import "vendor/mdi.css";
+@import "vendor/lazyload.css";
+@import "vendor/pswp.css";
+@import "misc/kg.css";
+@import "misc/utilities.css";
+@import "site/lightcolours.css";
+@import "site/darkcolours.css";
+@import "site/logo.css";
+
+
 :root {
-    /* Colours */
     --blue: #3eb0ef;
     --green: #a4d037;
     --purple: #ad26b4;
@@ -158,6 +195,8 @@ a.post-title-link {
     }
 }
 
+
+
 span.post-card-meta-date {
     float: right;
     margin-top: 1.8px;
@@ -210,20 +249,6 @@ border-radius:20px;
 }
 
 
-/*
-.post.single h1,
-.post.single h2,
-.post.single h3,
-.post.single h4,
-.post.single h5,
-.post.single h6,
-.post.single a,
-.post.single p,
-.post.single pre,
-.post.single code,
-.post.single strong,
-.post.single span
-*/
 .u-text-format h1,
 .u-text-format h2,
 .u-text-format h3,
@@ -260,6 +285,8 @@ border-radius:20px;
 
 .site-footer {
     display: block;
+
+    /* margin-top: none; */
     height: 50vh;
     background-color: var(--color-widget-primary);
 }

@@ -24,10 +24,10 @@ function stickySidebar() {
     'use strict';
     var marginTop = 30;
 
-//    jQuery('.sidebar-column, .related-column').theiaStickySidebar({
-//        additionalMarginTop: marginTop,
-//        additionalMarginBottom: 30,
-//    });
+    //    jQuery('.sidebar-column, .related-column').theiaStickySidebar({
+    //        additionalMarginTop: marginTop,
+    //        additionalMarginBottom: 30,
+    //    });
 }
 
 function pagination() {

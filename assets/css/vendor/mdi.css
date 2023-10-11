@@ -1,10 +1,10 @@
 @font-face {
-  font-family: "IVEEL";
-  src: url('../fonts/IVEEL.ttf') format('truetype'), url('../fonts/IVEEL.woff') format('woff'), url('../fonts/IVEEL.svg') format('svg');
+  font-family: "Poppins";
+  src: url('../fonts/Poppins-Regular.ttf');
   font-weight: normal;
   font-style: normal;
 }
-.icon:before {
+/* .icon:before {
   display: inline-block;
   font: normal normal normal 24px/1 "IVEEL";
   font-size: inherit;
@@ -90,4 +90,4 @@
 }
 .icon-vk:before {
   content: "\e941";
-}
+} */

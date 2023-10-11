@@ -178,7 +178,7 @@ color: var(--color-text-button);
 
 /****/
 .service-page>p {
-    margin-top: 20px;
+    margin-top: 10px;
     width: 50%;
     font-size: 20px;
 font-family:var(--font-family-serif);
@@ -186,12 +186,14 @@ font-family:var(--font-family-serif);
 
 .service-page>h2 {
     width: 50%;
-    font-family: 'Poppins';
     font-size: 28px;
     font-weight: 600;
-font-family:var(--font-family-sansSerif);
+font-family:var(--font-family-serif);
 }
 
+.service-page>ul>li{
+font-family:var(--font-family-serif);
+}
 .service-page>ul {
     width: 50%;
     font-size: 19px;
@@ -201,10 +203,12 @@ font-family:var(--font-family-sansSerif);
     margin-bottom: 20px;
     padding: 30px;
     width: 50%;
+max-width:650px;
     font-size: 17.5px;
 }
 
 .kg-button-card {
+margin-top:20px;
     margin-bottom: 30px;
 }
 

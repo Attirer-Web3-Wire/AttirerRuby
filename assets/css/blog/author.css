@@ -132,3 +132,7 @@ width:96px;
 height:96px;
 object-fit: cover;
 }
+
+.additional-links{
+gap:10px;
+display:flex;}
