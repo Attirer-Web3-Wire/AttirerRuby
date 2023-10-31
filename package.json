@@ -1,5 +1,5 @@
 {
-    "name": "attirer-dark-theme-1",
+    "name": "attirer-dark-theme-3",
     "description": "theme for attirer web3 wire based on dark ruby",
     "version": "1.0.0",
     "engines": {
@@ -29,6 +29,11 @@
             ]
         },
         "custom": {
+            "featured_posts_count":{
+                "type":"text",
+                "default":"3",
+                "group": "homepage"
+            },
             "number_of_editors_picks_posts": {
                 "type": "text",
                 "default": "3",

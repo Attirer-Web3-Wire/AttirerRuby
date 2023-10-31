@@ -2,7 +2,7 @@
 <html lang="{{@site.locale}}" class="{{#if @custom.enable_dark_mode}} is-darkModeAdminSetting-enabled {{/if}}">
 
 <!-- Weglot translations -->
-<link rel="alternate" hreflang="x-default" href="https://www.attirer.io">
+{{!-- <link rel="alternate" hreflang="x-default" href="https://www.attirer.io">
 <link rel="alternate" hreflang="en" href="https://www.attirer.io">
 <link rel="alternate" hreflang="fr" href="https://fr.attirer.io">
 <link rel="alternate" hreflang="de" href="https://de.attirer.io">
@@ -25,7 +25,7 @@
     Weglot.initialize({
         api_key: 'wg_277f3f59c1cd31ddb4b9c7b5b4acaf8a9'
     });
-</script>
+</script> --}}
 
 <head>
 
@@ -87,13 +87,30 @@
     {{> off-canvas}}
     {{> pswp}}
 
-
-<script async src="https://code.jquery.com/jquery-3.3.1.min.js"
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous">
         </script>
-  
-   <script async src="{{asset "built/main.min.js"}}"></script>
+   <script src="{{asset "built/main.min.js"}}"></script>
+   
+   {{!-- Start of My Blog: scripts --}}
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/prism.min.js" integrity="sha512-9+422Bs3A87UkWfp+qV80Nfv9arhbCXKY1rxrF2seorI36mIIstMiuBfyKLF1yH1nnzQkEWq2xrzT4XU3Z+vrA==" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-Q3qGP1uJL/B0sEmu57PKXjCirgPKMbg73OLRbTJ6lfHCVU5zkHqmcTI5EV2fSoPV1MHdKsCBE7m/aS6q0pPjRQ==" crossorigin="anonymous"></script>
+   <script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.12.0/tocbot.min.js" integrity="sha512-oD3xGN8YTxenx6tdS4D/RKqO4OtORBQtAb2/FseM17GGMIi6jMwKUBc8duX4A5RwMOGGXoFBZrsqbOk8GpXFgQ==" crossorigin="anonymous"></script>   
+   <script type="text/javascript">
+      tocbot.init({
+         tocSelector: '.post-toc',
+         contentSelector: '.post-content',
+         hasInnerContainers: true,
+//         positionFixedClass: '.sidebar-column',      
+      });
+      
+      mermaid.initialize({
+         startOnLoad: true,
+         theme: 'dark'
+      });
+   </script> 
 
     {{{block "scripts"}}}
     
@@ -104,25 +121,64 @@ document.addEventListener('DOMContentLoaded', function() {
     // Create a dropdown for language selection
     const languageSelector = document.createElement('select');
     languageSelector.id = 'languageSelector';
-    const languages = ['en', 'es', 'fr','hi','zh']; // Add more languages as needed
-    languages.forEach(lang => {
+    const contents = [
+        {option:'English',language:'en'},
+        {option:'French',language:'fr'},
+        {option:'Deutsch',language:'de'},
+        {option:'Español',language:'es'},
+        {option:'Portugués',language:'pt'},
+        {option:'Nederlands',language:'nl'},
+        {option:'Italiano',language:'it'},
+        {option:'हिंदी',language:'hi'}
+    ];
+
+    contents.forEach(lang => {
         const option = document.createElement('option');
-        option.value = lang;
-        option.textContent = lang.toUpperCase();
+        option.value = lang.language;
+        option.textContent = lang.option.toUpperCase();
         languageSelector.appendChild(option);
     });
 
+
+//document.getElementById('languageSelector')
+languageSelector.addEventListener('change', function() {
+    const selectedSubdomain = this.value;
+    const currentPath = window.location.pathname;
+    const currentQueryString = window.location.search;
+
+    // Construct the new URL based on the selected subdomain
+    const newURL = `https://${selectedSubdomain}.attirer.io${currentPath}${currentQueryString}`;
+
+    // Redirect to the new URL
+    window.location.href = newURL;
+});
+
+
     // Append the language selector to a target element
-    const container = document.querySelector('.footer-inner');
+    const container = document.querySelector('.c-header__top-left');
     if (container) {
         container.appendChild(languageSelector);
     }
 
-    // Add event listener for language change
-    languageSelector.addEventListener('change', function() {
-        const selectedLanguage = this.value;
-        translatePage(selectedLanguage);
-    });
+    // Function to get the subdomain from the current URL
+    function getSubdomain(hostname) {
+        const parts = hostname.split('.');
+        if (parts.length > 2) {
+            return parts[0];
+        }
+        return null;
+    }
+
+    // Get current subdomain
+    const currentSubdomain = getSubdomain(window.location.hostname);
+
+    // If the current subdomain matches a language code, set the dropdown value and translate the page
+    if (contents.some(lang => lang.language === currentSubdomain)) {
+        languageSelector.value = currentSubdomain;
+        translatePage(currentSubdomain);
+    }
+
+
 });
 
 function translateTextNodes(element, translations, startIndex = 0) {
@@ -130,16 +186,13 @@ function translateTextNodes(element, translations, startIndex = 0) {
     for (let child of element.childNodes) {
         if (child.nodeType === Node.TEXT_NODE && child.textContent.trim() !== "") {
             child.textContent = translations[index++];
-        } //else if (child.nodeType === Node.ELEMENT_NODE) {
-           // index = translateTextNodes(child, translations, index);
-        //}
+        }
     }
     return index;
 }
 
 function translatePage(targetLanguage) {
-
-    const div = document.querySelector('div.row');
+    const div = document.querySelector('div.site-content');
     const textNodes = div.querySelectorAll('p, h1, h2, h3, h4, h5, h6, a, span, li, td, th');
     const texts = [];
 
@@ -152,7 +205,7 @@ function translatePage(targetLanguage) {
     });
 
     // Send the texts for translation
-    fetch('http://localhost:3000/translate', {
+    fetch('https://arboreal-lyceum-391207.as.r.appspot.com/translate', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -167,7 +220,7 @@ function translatePage(targetLanguage) {
         if (data.translations && Array.isArray(data.translations)) {
             let startIndex = 0;
             textNodes.forEach(node => {
-               startIndex =  translateTextNodes(node, data.translations,startIndex);
+                startIndex =  translateTextNodes(node, data.translations, startIndex);
             });
         }
     })
@@ -175,6 +228,8 @@ function translatePage(targetLanguage) {
         console.error('Error translating:', error);
     });
 }
+
+
 </script>
 
 </html>

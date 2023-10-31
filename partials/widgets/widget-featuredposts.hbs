@@ -1,6 +1,6 @@
 <div class="widget widget-recent">
     <h4 class="widget-title">Featured</h4>
-    {{#get 'posts' filter='featured:true' limit='10' as |featured|}}
+    {{#get 'posts' filter='featured:true' limit=@custom.featured_posts_count as |featured|}}
     {{#foreach featured visibility='all'}}
         <div style="width:100%;height:150px;margin-top:15px;">
           <a

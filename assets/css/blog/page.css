@@ -183,12 +183,14 @@ color: var(--color-text-button);
     font-size: 20px;
 font-family:var(--font-family-serif);
 }
-
+.service-page>em{
+font-family:var(--font-family-sansSerif);
+}
 .service-page>h2 {
     width: 50%;
     font-size: 28px;
     font-weight: 600;
-font-family:var(--font-family-serif);
+font-family:var(--font-family-sansSerif);
 }
 
 .service-page>ul>li{
@@ -219,7 +221,7 @@ margin-top:20px;
 
 .service-page>h3 {
     width: 50%;
-    font-family: 'Poppins';
+    font-family: var(--font-family-sansSerif);
     font-size: 24px;
     font-weight: 600;
 }
