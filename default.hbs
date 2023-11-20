@@ -3,22 +3,22 @@
 
 <!-- Weglot translations -->
 {{!-- <link rel="alternate" hreflang="x-default" href="https://www.attirer.io">
-<link rel="alternate" hreflang="en" href="https://www.attirer.io">
-<link rel="alternate" hreflang="fr" href="https://fr.attirer.io">
-<link rel="alternate" hreflang="de" href="https://de.attirer.io">
-<link rel="alternate" hreflang="pt" href="https://pt.attirer.io">
-<link rel="alternate" hreflang="es" href="https://es.attirer.io">
-<link rel="alternate" hreflang="zh" href="https://zh.attirer.io">
-<link rel="alternate" hreflang="ar" href="https://ar.attirer.io">
-<link rel="alternate" hreflang="ja" href="https://ja.attirer.io">
-<link rel="alternate" hreflang="ko" href="https://ko.attirer.io">
-<link rel="alternate" hreflang="tr" href="https://tr.attirer.io">
+<link rel="alternate" hreflang="en" href="https://www.attirer.io">do
+<link rel="alternate" hreflang="fr" href="https://fr.attirer.io">do
+<link rel="alternate" hreflang="de" href="https://de.attirer.io">do
+<link rel="alternate" hreflang="pt" href="https://pt.attirer.io">do
+<link rel="alternate" hreflang="es" href="https://es.attirer.io">do
+<link rel="alternate" hreflang="zh" href="https://zh.attirer.io">do
+<link rel="alternate" hreflang="ar" href="https://ar.attirer.io">do
+<link rel="alternate" hreflang="ja" href="https://ja.attirer.io">do
+<link rel="alternate" hreflang="ko" href="https://ko.attirer.io">do
+<link rel="alternate" hreflang="tr" href="https://tr.attirer.io">do
 <link rel="alternate" hreflang="zh-tw" href="https://zh-tw.attirer.io">
-<link rel="alternate" hreflang="it" href="https://it.attirer.io">
-<link rel="alternate" hreflang="th" href="https://th.attirer.io">
-<link rel="alternate" hreflang="id" href="https://id.attirer.io">
-<link rel="alternate" hreflang="nl" href="https://nl.attirer.io">
-<link rel="alternate" hreflang="hi" href="https://hi.attirer.io">
+<link rel="alternate" hreflang="it" href="https://it.attirer.io">do
+<link rel="alternate" hreflang="th" href="https://th.attirer.io">do
+<link rel="alternate" hreflang="id" href="https://id.attirer.io">do
+<link rel="alternate" hreflang="nl" href="https://nl.attirer.io">do
+<link rel="alternate" hreflang="hi" href="https://hi.attirer.io">do
 <script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js">
 </script>
 <script>
@@ -118,9 +118,7 @@
 </body>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Create a dropdown for language selection
-    const languageSelector = document.createElement('select');
-    languageSelector.id = 'languageSelector';
+
     const contents = [
         {option:'English',language:'en'},
         {option:'French',language:'fr'},
@@ -129,35 +127,27 @@ document.addEventListener('DOMContentLoaded', function() {
         {option:'Portugués',language:'pt'},
         {option:'Nederlands',language:'nl'},
         {option:'Italiano',language:'it'},
-        {option:'हिंदी',language:'hi'}
+        {option:'हिंदी',language:'hi'},
+        {option:'简体中文',language:'zh'},
+        {option:'中国人',language:'zh-cn'},
+        {option:'日本語',language:'ja'},
+        {option:'한국인',language:'ko'},
+        {option:'Türkçe',language:'tr'},
+        {option:'Bahasa Indonesia',language:'id'},
+        {option:'แบบไทย',language:'th'},
     ];
 
-    contents.forEach(lang => {
-        const option = document.createElement('option');
-        option.value = lang.language;
-        option.textContent = lang.option.toUpperCase();
-        languageSelector.appendChild(option);
-    });
 
+    function updateLanguage(code){
+        const selectedSubdomain = code;
+        const currentPath = window.location.pathname;
+        const currentQueryString = window.location.search;
 
-//document.getElementById('languageSelector')
-languageSelector.addEventListener('change', function() {
-    const selectedSubdomain = this.value;
-    const currentPath = window.location.pathname;
-    const currentQueryString = window.location.search;
+        // Construct the new URL based on the selected subdomain
+        const newURL = `https://${selectedSubdomain}.attirer.io${currentPath}${currentQueryString}`;
 
-    // Construct the new URL based on the selected subdomain
-    const newURL = `https://${selectedSubdomain}.attirer.io${currentPath}${currentQueryString}`;
-
-    // Redirect to the new URL
-    window.location.href = newURL;
-});
-
-
-    // Append the language selector to a target element
-    const container = document.querySelector('.c-header__top-left');
-    if (container) {
-        container.appendChild(languageSelector);
+        // Redirect to the new URL
+        window.location.href = newURL;
     }
 
     // Function to get the subdomain from the current URL
@@ -168,15 +158,164 @@ languageSelector.addEventListener('change', function() {
         }
         return null;
     }
+    //new selector code
 
-    // Get current subdomain
+    const languageSelector = document.createElement('div');
+    languageSelector.className = 'language-selector';
+    languageSelector.id = 'languageSelector';
+
+    // Create the selected language display area
+    const selectedLanguage = document.createElement('div');
+    selectedLanguage.className = 'selected-language';
+    languageSelector.appendChild(selectedLanguage);
+    
+    selectedLanguage.addEventListener('click', () => {
+    languageSelector.classList.toggle('open');
+    });
+
     const currentSubdomain = getSubdomain(window.location.hostname);
+    
+    
+    let languageSet = false;
+    for(const lang of contents){
+        if(currentSubdomain === lang.language)
+        {
+            selectedLanguage.innerHTML = `${lang.option}`;
+            translatePage(currentSubdomain);
+            languageSet = true;
+            break;
+        }
+
+    }
+
+    if(!languageSet){
+        selectedLanguage.innerHTML = `English`;
+    }
+
+    const optionsContainer = document.createElement('div');
+    optionsContainer.className = 'options';
+    languageSelector.appendChild(optionsContainer);
+
+
+
+    contents.forEach(lang => {
+        const option = document.createElement('div');
+        option.className = 'dropdown-option';
+        option.dataset.value = lang.language;
+        option.innerHTML = `${lang.option}`;
+        option.addEventListener('click', function() {
+            selectedLanguage.innerHTML = this.innerHTML;
+            languageSelector.classList.remove('open');
+            updateLanguage(this.dataset.value); // Function to update the language of the page
+    });
+        optionsContainer.appendChild(option);
+    });
+
+
+
+    const style = document.createElement('style');
+    style.type = 'text/css';
+
+    // CSS styles as a string
+    const cssString = `
+    .language-selector {
+      width:125px;
+      position: relative;
+      cursor: pointer;
+      display: inline-block;
+      border: 1px solid var(--color-border-secondary);
+      border-radius: 5px;
+      padding: 5px 10px;
+      background: var(--color-background-primary);
+    }
+
+    .language-selector .selected-language {
+      display: flex;
+      align-items: center;
+    }
+
+    .language-selector .options {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--color-background-primary);
+      z-index: 1000;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+
+    .language-selector.open .options {
+      display: block;
+    }
+
+    .language-selector .dropdown-option {
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+
+    .language-selector .dropdown-option:hover {
+      background-color: var(--color-hover-primary);
+    }
+
+    .flag-icon {
+      width: 20px;
+      height: 15px;
+      margin-right: 5px;
+    }
+    .dropdown-option{
+    color:var(--color-text-primary);
+    }
+  `;
+
+    // Insert CSS into the style element
+    style.appendChild(document.createTextNode(cssString));
+
+
+
+    // Append the style element to the head
+    document.head.appendChild(style);
+    // Append the language selector to a target element
+    const container = document.querySelector('.c-header__top-left');
+    if (container) {
+        container.appendChild(languageSelector);
+    }
+
+    
+   
 
     // If the current subdomain matches a language code, set the dropdown value and translate the page
     if (contents.some(lang => lang.language === currentSubdomain)) {
         languageSelector.value = currentSubdomain;
         translatePage(currentSubdomain);
     }
+
+
+
+
+    const postContainer = document.querySelector('.site-content'); // Change this to the actual container selector
+    const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            //console.log("Mutation Observed");
+            if (mutation.addedNodes.length > 0) {
+                mutation.addedNodes.forEach((newNode) => {
+                    
+                    if (newNode.nodeType === Node.ELEMENT_NODE) {
+                        translatePage(languageSelector.value, newNode);
+                    }
+                });
+            }
+        });
+    });
+
+
+     if (postContainer) {
+        observer.observe(postContainer, { childList: true, subtree: true });
+        //console.log("Observer Attached to", postContainer);
+    }
+
+    // Disconnect observer when page is unloaded to prevent memory leaks
+   // window.addEventListener('beforeunload', () => observer.disconnect());
 
 
 });
@@ -191,9 +330,11 @@ function translateTextNodes(element, translations, startIndex = 0) {
     return index;
 }
 
-function translatePage(targetLanguage) {
-    const div = document.querySelector('div.site-content');
-    const textNodes = div.querySelectorAll('p, h1, h2, h3, h4, h5, h6, a, span, li, td, th');
+function translatePage(targetLanguage,element = document.body) {
+  //  const div = document.querySelector('body');
+
+    console.log("Translations on ",element);
+    const textNodes = element.querySelectorAll('p, h1, h2, h3, h4, h5, h6, a, span, li, td, th');
     const texts = [];
 
     textNodes.forEach(node => {
