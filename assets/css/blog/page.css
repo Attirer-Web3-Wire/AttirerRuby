@@ -10,6 +10,10 @@
 
     }
 
+    .page-wrapper>.service-page>h1{
+        width: 55%;
+    }   
+
     .page-wrapper>.service-page>ul {
         width: 55%;
     }
@@ -33,7 +37,7 @@
         width: 80%;
     }
 
-    .page-wrapper>.service-page>h2 {
+    .page-wrapper>.service-page>h2,.page-wrapper>.service-page>h1{
         width: 80%;
 
     }
@@ -57,18 +61,18 @@
 
 
 
-@media only screen and (max-width: 380px) {
+@media only screen and (max-width: 401px) {
     .page-wrapper>.service-page>p {
         width: 90%;
     }
 
-    .page-wrapper>.service-page>h2 {
+    .page-wrapper>.service-page>h2,.page-wrapper>.service-page>h1{
         width: 90%;
-
     }
 
     .page-wrapper>.service-page>ul {
         width: 90%;
+        margin-left:10px;
     }
 
     .page-wrapper>.service-page>.kg-callout-card-purple {
@@ -101,7 +105,8 @@
     background: black;
 }
 
-.kg-header-card-header {
+.kg-header-card-header,.kg-header-card-heading {
+    color:#b4a7d6;
     padding: 0 25%;
     font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
     font-size: 40px;
@@ -133,7 +138,7 @@
     }
 }
 
-.kg-header-card-subheader {
+.kg-header-card-subheader{
     margin-bottom: 50px;
     padding: 0 20%;
     font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
@@ -143,6 +148,19 @@
     font-weight: 400;
 
 }
+.kg-header-card-subheading span{
+    margin-bottom: 50px;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    line-height: 32px;
+    font-size: 24px;
+    color: white;
+    font-weight: 400;
+}
+
+.kg-header-card-subheading{
+margin-bottom:40px;
+}
+
 
 .kg-header-card-button,
 .kg-btn-accent {
@@ -190,8 +208,14 @@ font-family:var(--font-family-sansSerif);
     width: 50%;
     font-size: 28px;
     font-weight: 600;
-font-family:var(--font-family-sansSerif);
+    font-family:var(--font-family-sansSerif);
 }
+
+.service-page>h1{
+    width: 50%;
+}
+
+
 
 .service-page>ul>li{
 font-family:var(--font-family-serif);
@@ -237,6 +261,9 @@ margin-top:20px;
 
 
 
+h2.kg-header-card-heading > span{
+    color: #b4a7d6;
+}
 
 /* Strategic partnerships page cards */
 .kg-bookmark-container {
@@ -319,25 +346,41 @@ font-family:'Poppins';
 }
 
 @media only screen and (max-width: 800px) {
-    .service-page .kg-bookmark-card {
+    .service-page .kg-bookmark-card, .service-page .kg-image-card{
         width: 55%;
     }
 }
 
 @media only screen and (max-width: 700px) {
-    .service-page .kg-bookmark-card {
+    .service-page .kg-bookmark-card, .service-page .kg-image-card{
         width: 65%;
     }
 }
 
 @media only screen and (max-width: 600px) {
-    .service-page .kg-bookmark-card {
+    .service-page .kg-bookmark-card, .service-page .kg-image-card{
         width: 80%;
     }
+    
+
 }
 
-@media only screen and (max-width: 350px) {
-    .service-page .kg-bookmark-card {
+@media only screen and (max-width: 400px) {
+    .service-page .kg-bookmark-card, .service-page .kg-image-card{
         width: 90%;
     }
+    h2.kg-header-card-heading{
+font-size: 35px;
+padding: 10px;
 }
+
+}
+
+
+
+
+
+.kg-image-card{
+width:50%;
+}
+

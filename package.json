@@ -1,5 +1,5 @@
 {
-    "name": "attirer-dark-theme-dynamic-2",
+    "name": "attirer-dark-theme-dynamic-2-featured-image-final",
     "description": "theme for attirer web3 wire based on dark ruby",
     "version": "1.0.0",
     "engines": {
@@ -31,12 +31,12 @@
         "custom": {
             "featured_posts_count":{
                 "type":"text",
-                "default":"3",
+                "default":"5",
                 "group": "homepage"
             },
             "number_of_editors_picks_posts": {
                 "type": "text",
-                "default": "3",
+                "default": "5",
                 "group": "homepage"
             },
             "dark_mode_accent_color": {

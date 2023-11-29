@@ -92,13 +92,8 @@ embed {
     border: 0;
 }
 
-figure {
-    margin: 45px 0;
-}
-
 figcaption {
     margin-top: 15px;
-    color: var(--dark-gray-color);
     font-size: 14px;
     text-align: center;
 }
