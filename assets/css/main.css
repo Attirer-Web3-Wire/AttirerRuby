@@ -35,8 +35,11 @@
 @import "site/darkcolours.css";
 @import "site/logo.css";
 
+
+
 .post-content .kg-image-card{
 width:100%;
+margin:0;
 }
 :root {
     --blue: #3eb0ef;

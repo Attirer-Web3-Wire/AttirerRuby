@@ -40,6 +40,8 @@
     {{!-- Styles'n'Scripts --}}      
     {{!-- <link rel="stylesheet" href="{{asset "built/screen.css"}}">
     <link rel="stylesheet" type="text/css" href="{{asset "built/theme.css"}}" /> --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
     <link rel="stylesheet" type="text/css" href="{{asset "built/main.css"}}" />
    
   {{!-- <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -119,6 +121,7 @@
 <script>
 document.addEventListener('DOMContentLoaded', function() {
 
+
     const contents = [
         {option:'English',language:'en'},
         {option:'French',language:'fr'},
@@ -135,19 +138,25 @@ document.addEventListener('DOMContentLoaded', function() {
         {option:'Türkçe',language:'tr'},
         {option:'Bahasa Indonesia',language:'id'},
         {option:'แบบไทย',language:'th'},
+        {option:'malay',language:'ml'},
+        {option:'Tiếng Việt',language:'vi'},
+        {option:'عربي',language:'ar'},
     ];
 
 
-    function updateLanguage(code){
-        const selectedSubdomain = code;
-        const currentPath = window.location.pathname;
-        const currentQueryString = window.location.search;
+    function updateLanguage(code, isManual = false) {
+    const selectedSubdomain = code === 'www' ? '' : code + '.';
+    const currentPath = window.location.pathname;
+    let currentQueryString = window.location.search;
 
-        // Construct the new URL based on the selected subdomain
-        const newURL = `https://${selectedSubdomain}.attirer.io${currentPath}${currentQueryString}`;
+    if (isManual) {
+        const queryParams = new URLSearchParams(currentQueryString);
+        queryParams.set('langChange', 'manual');
+        currentQueryString = '?' + queryParams.toString();
+    }
 
-        // Redirect to the new URL
-        window.location.href = newURL;
+    const newURL = `https://${selectedSubdomain}attirer.io${currentPath}${currentQueryString}`;
+    window.location.href = newURL;
     }
 
     // Function to get the subdomain from the current URL
@@ -159,6 +168,78 @@ document.addEventListener('DOMContentLoaded', function() {
         return null;
     }
     //new selector code
+
+    function redirectToUserLanguage(currentSubdomain) {
+    const userLang = navigator.language.split('-')[0]; // Get the base language code
+    const isDefaultSubdomain = !currentSubdomain || currentSubdomain === 'www';
+    
+    // If the current subdomain is 'www', treat it as 'en'
+    const effectiveSubdomain = isDefaultSubdomain ? 'en' : currentSubdomain;
+
+    const supportedLangs = contents.map(lang => lang.language);
+    const matchedLang = supportedLangs.find(lang => userLang === lang) || 'en';
+
+    // Redirect if current subdomain doesn't match the browser language,
+    // but avoid redirecting if it's already on the default 'www' for English
+    if (matchedLang !== effectiveSubdomain) {
+        const newSubdomain = matchedLang === 'en' ? 'www' : matchedLang;
+        updateLanguage(newSubdomain);
+    }
+    }
+
+  
+    const currentSubdomain = getSubdomain(window.location.hostname);
+    const queryParams = new URLSearchParams(window.location.search);
+
+
+
+
+    const manualSelection = queryParams.get('langChange') === 'manual';
+    if (!manualSelection) {
+        redirectToUserLanguage(currentSubdomain);
+    }
+
+    const manualLanguageChange = queryParams.get('langChange') === 'manual';
+    if (manualLanguageChange) {
+        updateInternalLinks();
+    }
+
+
+   
+
+
+
+
+    function updateInternalLinks() {
+    const currentUrl = new URL(window.location.href);
+    const currentQueryString = currentUrl.search;
+    const currentSubdomain = getSubdomain(window.location.hostname);
+    const baseDomain = 'attirer.io'; // Set your base domain here
+
+    const internalLinks = document.querySelectorAll(
+        `a[href^="/"], a[href^="http://${baseDomain}"], a[href^="https://${baseDomain}"], a[href^="http://www.${baseDomain}"], a[href^="https://www.${baseDomain}"]`
+    );
+
+    internalLinks.forEach(link => {
+        const originalUrl = new URL(link.href, window.location.origin);
+
+        // Update the hostname to include the current subdomain, if it's not already part of the hostname
+        if (currentSubdomain && currentSubdomain !== 'www' && !originalUrl.hostname.startsWith(currentSubdomain + '.')) {
+            originalUrl.hostname = currentSubdomain + '.' + baseDomain;
+        }
+
+        // Append the current query string
+        originalUrl.search = currentQueryString;
+
+        link.href = originalUrl.href;
+    });
+}
+
+
+
+
+
+
 
     const languageSelector = document.createElement('div');
     languageSelector.className = 'language-selector';
@@ -173,7 +254,7 @@ document.addEventListener('DOMContentLoaded', function() {
     languageSelector.classList.toggle('open');
     });
 
-    const currentSubdomain = getSubdomain(window.location.hostname);
+    //const currentSubdomain = getSubdomain(window.location.hostname);
     
     
     let languageSet = false;
@@ -204,9 +285,10 @@ document.addEventListener('DOMContentLoaded', function() {
         option.dataset.value = lang.language;
         option.innerHTML = `${lang.option}`;
         option.addEventListener('click', function() {
+            
             selectedLanguage.innerHTML = this.innerHTML;
             languageSelector.classList.remove('open');
-            updateLanguage(this.dataset.value); // Function to update the language of the page
+            updateLanguage(this.dataset.value, true); // Function to update the language of the page
     });
         optionsContainer.appendChild(option);
     });
@@ -334,7 +416,7 @@ function translatePage(targetLanguage,element = document.body) {
   //  const div = document.querySelector('body');
 
     console.log("Translations on ",element);
-    const textNodes = element.querySelectorAll('p, h1, h2, h3, h4, h5, h6, a, span, li, td, th');
+    const textNodes = element.querySelectorAll('p, h1, h2, h3, h4, h5, h6, a, span, li, td, th, strong, blockquote, figcaption, em');
     const texts = [];
 
     textNodes.forEach(node => {
@@ -346,7 +428,7 @@ function translatePage(targetLanguage,element = document.body) {
     });
 
     // Send the texts for translation
-    fetch('https://arboreal-lyceum-391207.as.r.appspot.com/translate', {
+    fetch('https://translator.attirer.io/translate', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

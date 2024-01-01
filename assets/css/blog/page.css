@@ -205,8 +205,10 @@ font-family:var(--font-family-serif);
 font-family:var(--font-family-sansSerif);
 }
 .service-page>h2 {
+    margin-top: 20px;
     width: 50%;
-    font-size: 28px;
+    text-align: center;
+    font-size: 36px;
     font-weight: 600;
     font-family:var(--font-family-sansSerif);
 }
@@ -319,12 +321,14 @@ h2.kg-header-card-heading > span{
 
 .kg-card figcaption {
     width: 100%;
-    padding-top: 8px;
+   
 color:inherit;
 font-family:'Poppins';
     font-size: 14px;
     line-height: 16px;
     letter-spacing: .25px;
+margin-top:10px;
+margin-bottom:15px;
 }
 
 @media (max-width: 930px) {
