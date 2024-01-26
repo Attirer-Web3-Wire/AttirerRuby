@@ -1,70 +1,84 @@
 {{!< default}} <div class="page-wrapper" style="display: flex;flex-direction: column;align-items: center;justify-content: center;">
-    <script>
+    <!-- <script>
     //this is where we will load the api
-        
-
-document.addEventListener("DOMContentLoaded", function() {
-    fetch('http://localhost:4000/events')
-    .then(response => response.json())
-    .then(data => {
-        const container = document.querySelector('.grid-container');
-        data.forEach(event => {
-            const options = { day: 'numeric', month: 'short', year: 'numeric' };
-            const startDate = new Date(event.startDate).toLocaleDateString('en-US', options);
-            const endDate = new Date(event.endDate).toLocaleDateString('en-US', options);
-            const card = document.createElement('div');
-            card.className = 'event-card u-shadow';
-            card.style = "font-family: 'Poppins';width: 300px;flex-direction: column;height: 370px;background: #f5f4ff;padding: 0;display: flex;align-items: center;border-radius: 10px;";
-            card.innerHTML = `
-                <img src="http://localhost:4000/${event.images[0]}" alt="" style="width:300px;height:220px;object-fit: cover;border-top-left-radius: 10px;border-top-right-radius: 10px;"/>
-                <div class="info-section" style="width:100%;border-bottom: 1px solid #ccc;height:40%;padding:15px;">
-                    <span><h2><strong>${event.name}</strong></h2></span>
-                    <div><i class="fa-solid fa-calendar" aria-hidden="true"></i> ${startDate} - ${endDate}</div>
-                    <div><i class="fa-solid fa-location-dot" aria-hidden="true"></i> ${event.city}</div>
-                </div>
-                <div class="event-links">
-                    <a href="${event.eventLink}" class="text-blue-500 hover:text-blue-600"><i class="fas fa-link mr-2"></i> Event Link</a>
-                    <a href="${event.socialMediaLink}" class="text-blue-500 hover:text-blue-600"><i class="fas fa-share-alt mr-2"></i> Social Media</a>
-                </div>
-            `;
-            container.appendChild(card);
-        });
-    })
-    .catch(error => {
-        console.error('Error fetching data:', error);
-    });
-});
 
 
 
-    </script>
+    </script> -->
     <style>
-        .info-section h2,p{
-            font-family:'poppins';
+        .info-section h2{
+            font-size:22px;
+        }
+
+        .info-section i,p{
+        
+            font-size:14px;
         }
 
 .event-links{
     display: flex;
     width: 300px;
-    justify-content: space-evenly;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 15px;
+    padding-right:15px;
+    gap:10px;
 }
 
+.lmclass{
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.6px;
+    font-weight: 700;
+    font-family: var(--font-family-sansSerif);
+}
 
 .grid-container {
     display: grid;
-     grid-template-columns: repeat(4, 300px); /* sets each cell to 200px width */
-
-    grid-gap: 50px; /* optional, for spacing between cells */
+    grid-gap: 50px;
+    grid-template-columns: repeat(4, 300px); /* Default layout for large screens */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px; /* Adjust as needed */
+    padding-right: 20px; /* Adjust as needed */
 }
+
+/* Adjust grid layout for slightly smaller screens */
+@media (max-width: 1200px) {
+    .grid-container {
+        grid-template-columns: repeat(4, 300px);
+    }
+}
+
+/* Adjust grid layout for medium screens */
+@media (max-width: 1000px) {
+    .grid-container {
+        grid-template-columns: repeat(3, 300px);
+    }
+}
+
+/* Adjust grid layout for small-medium screens */
+@media (max-width: 850px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 300px);
+    }
+}
+
+/* Adjust grid layout for small screens */
+@media (max-width: 480px) {
+    .grid-container {
+        grid-template-columns: repeat(1, 300px);
+    }
+}
+
+
 
     </style>
 
     <div class="top-events-container" style="height: 100%;width: 100%; display:flex;flex-direction:column;">
-        <h1 style="margin-left:20px;font-family:'Poppins';font-size:x-large;">Find Your Next Favorite Crypto Event</h1>
-        <div class="grid-container" style="width: fit-content;height:100%; align-self:center;">
-            
-
-        </div>
+       <div class="grid-container" style="height:100%; align-self:center;"><h1 style="grid-column: 1 / -1; font-size: 30px; font-family: 'Poppins'; font-weight: bolder;">Upcoming Web3 and Crypto Events</h1>
+        
+      </div>
     </div>
 
     </div>
