@@ -1,7 +1,7 @@
 {
-    "name": "attirer-dark-theme-dynamic-2-featured-image-final",
+    "name": "attirer-dark-theme-2",
     "description": "theme for attirer web3 wire based on dark ruby",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "engines": {
         "ghost": ">=3.0.0",
         "ghost-api": "v3"

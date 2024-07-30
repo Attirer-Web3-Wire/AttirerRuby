@@ -6,6 +6,12 @@
 
     </script> -->
     <style>
+    
+
+        .top-events-container{
+            justify-content: space-evenly;
+            gap:10px;
+        }
         .info-section h2{
             font-size:22px;
         }
@@ -25,6 +31,34 @@
     gap:10px;
 }
 
+.event-card{
+    width:320px;
+    height:360px;
+}
+
+.event-card img{
+    width:320px;
+    height:180px;
+}
+
+@media (max-width: 1350px){
+    .top-events-container .grid-container {
+        grid-template-columns: repeat(3, 230px); /* Default layout for large screens */
+    }
+    .event-card{
+        width:250px;
+        height: 300px;
+    }
+
+    .event-card img{
+        width:250px;
+        height:120px;
+    }
+    .event-links{
+        width:250px;
+    }
+}
+
 .lmclass{
     text-transform: uppercase;
     font-size: 11px;
@@ -36,25 +70,46 @@
 .grid-container {
     display: grid;
     grid-gap: 50px;
-    grid-template-columns: repeat(4, 300px); /* Default layout for large screens */
-    margin-left: auto;
-    margin-right: auto;
+    grid-template-columns: repeat(3, 300px); /* Default layout for large screens */
     padding-left: 20px; /* Adjust as needed */
     padding-right: 20px; /* Adjust as needed */
 }
 
 /* Adjust grid layout for slightly smaller screens */
 @media (max-width: 1200px) {
-    .grid-container {
-        grid-template-columns: repeat(4, 300px);
+   .grid-container {
+        grid-template-columns: repeat(2, 300px);
     }
 }
 
 /* Adjust grid layout for medium screens */
 @media (max-width: 1000px) {
-    .grid-container {
-        grid-template-columns: repeat(3, 300px);
+
+    .event-card{
+        width:320px;
+        height:360px;
     }
+
+    .event-card img{
+        width:320px;
+        height:180px;
+    }
+    .event-links{
+        width:320px;
+    }
+
+
+    .top-events-container .grid-container {
+        grid-template-columns: repeat(2, 300px);
+    }
+     
+}
+
+
+@media (max-width: 1060px){
+    .widget.widget-recent{
+                display:none;
+            }
 }
 
 /* Adjust grid layout for small-medium screens */
@@ -66,7 +121,7 @@
 
 /* Adjust grid layout for small screens */
 @media (max-width: 480px) {
-    .grid-container {
+    .top-events-container .grid-container {
         grid-template-columns: repeat(1, 300px);
     }
 }
@@ -75,10 +130,144 @@
 
     </style>
 
-    <div class="top-events-container" style="height: 100%;width: 100%; display:flex;flex-direction:column;">
-       <div class="grid-container" style="height:100%; align-self:center;"><h1 style="grid-column: 1 / -1; font-size: 30px; font-family: 'Poppins'; font-weight: bolder;">Upcoming Web3 and Crypto Events</h1>
+    <div class="top-events-container"  style="height: 100%;width: 100%; display:flex;flex-direction:row;max-width:1500px">
+       <div class="grid-container" id="event-cards-container" style="height:70%;"><h1 style="grid-column: 1 / -1; font-size: 30px; font-family: 'Poppins'; font-weight: bolder;">Upcoming Web3 and Crypto Events</h1>
+        
+      </div>
+      <div class="featuredEvents" style="height:70%;width:300px">
+
+
+        <div class="widget widget-recent" style="margin-top:100px;">
+        </div>
+
         
       </div>
     </div>
+
+
+    <button id="load-more" class="button" style="margin-right: 10%; margin-top:30px" onclick="loadMoreEvents()">Load More Events</button>
+
+
+
+<script>
+  let currentIndex = 0;
+  const eventsPerPage = 12;
+
+  function renderEvents() {
+    const container = document.getElementById('event-cards-container');
+    const eventsToRender = eventsData.slice(currentIndex, currentIndex + eventsPerPage);
+    const currentDate = new Date();
+    const options = { day: 'numeric', month: 'short', year: 'numeric' };
+
+    const isAttirerHost = window.location.hostname === 'www.attirer.io' || window.location.hostname.startsWith('attirer.io');
+
+    eventsToRender.forEach(event => {
+      const eventEndDate = new Date(event.endDate);
+      const isPastEvent = eventEndDate < currentDate;
+
+      const startDate = new Date(event.startDate).toLocaleDateString('en-US', options);
+      const endDate = new Date(event.endDate).toLocaleDateString('en-US', options);
+
+      const eventName = encodeURIComponent(event.name);
+      const eventLocation = encodeURIComponent(event.city);
+
+      const startDateFormatted = new Date(event.startDate).toISOString().slice(0, 10).replace(/-/g, '');
+      const endDateFormatted = new Date(event.endDate).toISOString().slice(0, 10).replace(/-/g, '');
+      const startTimeCalendar = `${startDateFormatted}T033000Z`;
+      const endTimeCalendar = `${endDateFormatted}T133000Z`;
+
+      const googleCalendarUrl = `https://www.google.com/calendar/render?action=TEMPLATE&text=${eventName}&dates=${startTimeCalendar}/${endTimeCalendar}&details=For+details,+link+here:+${encodeURIComponent(event.eventLink)}&location=${eventLocation}`;
+
+      const eventHtml = `
+        <div class="event-card u-shadow" style="flex-direction: column; background-color: var(--color-background-primary); padding: 0; display: flex; align-items: center; border-radius: 10px; ${isPastEvent ? ' opacity: 0.5; pointer-events: none;' : ''}">
+          <img src="${event.images[0]}" alt="event featured-image" style="object-fit: cover;border-top-left-radius: 10px;border-top-right-radius: 10px;"/>
+          <div class="info-section" style="width: 100%; border-bottom: 1px solid #ccc; height: 150px; padding: 15px;">
+            <span><h2><strong>${event.name}</strong></h2></span>
+            <div><a href="${googleCalendarUrl}" target="_blank" style="text-decoration: none;"><i class="fa-solid fa-calendar ${isAttirerHost ? '' : 'icon-right'}" aria-hidden="true"></i>${isAttirerHost ? ' ' : ''}${startDate} - ${endDate}</a></div>
+            <div><a href="https://maps.google.com/?q=${eventLocation}" target="_blank" style="text-decoration: none;"><i class="fa-solid fa-location-dot ${isAttirerHost ? '' : 'icon-right'}" aria-hidden="true"></i>${isAttirerHost ? ' ' : ''}${event.city}</a></div>
+          </div>
+          <div class="event-links" style="height: 30px;">
+            <a href="${event.eventLink}?ref=attirer.io" class="lmclass"><span class="${isAttirerHost ? '' : 'icon-right'}">Learn More${isAttirerHost ? ' ' : ''}</span><i class="fas fa-chevron-right mr-2"></i></a>
+            ${event.twitterLink ? `<a href="${event.twitterLink}" class="text-blue-500 hover:text-blue-600" style="margin-left: auto;"><img src="/assets/images/twitter_x_d.svg" style="width: 19px" width="19px"/></a>` : ''}
+            ${event.telegramHandle ? `<a href="${event.telegramHandle}" class="text-blue-600 hover:text-blue-700"><i class="fab fa-telegram-plane mr-2"></i></a>` : ''}
+          </div>
+        </div>
+      `;
+
+      container.innerHTML += eventHtml;
+    });
+
+    currentIndex += eventsPerPage;
+    if (currentIndex >= eventsData.length) {
+      document.getElementById('load-more').style.display = 'none';
+    }
+  }
+
+  document.getElementById('load-more').addEventListener('click', renderEvents);
+</script>
+
+
+
+
+{{!-- <script>
+  let currentIndex = 0;
+  const eventsPerPage = 6;
+
+  function renderEvents() {
+    const container = document.getElementById('event-cards-container');
+    const eventsToRender = eventsData.slice(currentIndex, currentIndex + eventsPerPage);
+    const currentDate = new Date();
+    const options = { day: 'numeric', month: 'short', year: 'numeric' };
+
+    eventsToRender.forEach(event => {
+      const eventEndDate = new Date(event.endDate);
+      const isPastEvent = eventEndDate < currentDate;
+
+      const startDate = new Date(event.startDate).toLocaleDateString('en-US', options);
+      const endDate = new Date(event.endDate).toLocaleDateString('en-US', options);
+
+      const eventName = encodeURIComponent(event.name);
+      const eventLocation = encodeURIComponent(event.city);
+
+      const startDateFormatted = new Date(event.startDate).toISOString().slice(0, 10).replace(/-/g, '');
+      const endDateFormatted = new Date(event.endDate).toISOString().slice(0, 10).replace(/-/g, '');
+      const startTimeCalendar = `${startDateFormatted}T033000Z`;
+      const endTimeCalendar = `${endDateFormatted}T133000Z`;
+
+      const googleCalendarUrl = `https://www.google.com/calendar/render?action=TEMPLATE&text=${eventName}&dates=${startTimeCalendar}/${endTimeCalendar}&details=For+details,+link+here:+${encodeURIComponent(event.eventLink)}&location=${eventLocation}`;
+
+      const eventHtml = `
+        <div class="event-card u-shadow" style="flex-direction: column; background-color: var(--color-background-primary); padding: 0; display: flex; align-items: center; border-radius: 10px; ${isPastEvent ? 'opacity: 0.5; pointer-events: none;' : ''}">
+          <img src="${event.images[0]}" alt="event featured-image" style="object-fit: cover;border-top-left-radius: 10px;border-top-right-radius: 10px;"/>
+          <div class="info-section" style="width: 100%; border-bottom: 1px solid #ccc; height: 150px; padding: 15px;">
+            <span><h2><strong>${event.name}</strong></h2></span>
+            <div><a href="${googleCalendarUrl}" target="_blank" style="text-decoration: none;"><i class="fa-solid fa-calendar" aria-hidden="true"></i> ${startDate} - ${endDate}</a></div>
+            <div><a href="https://maps.google.com/?q=${eventLocation}" target="_blank" style="text-decoration: none;"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> ${event.city}</a></div>
+          </div>
+          <div class="event-links" style="height: 30px;">
+            ${getSubdomain(window.location.hostname) !== 'www'}
+            <a href="${event.eventLink}?ref=attirer.io" class="lmclass">Learn More <i class="fas fa-chevron-right mr-2"></i></a>
+            ${event.twitterLink ? `<a href="${event.twitterLink}" class="text-blue-500 hover:text-blue-600" style="margin-left: auto;"><img src="/assets/images/twitter_x_d.svg" style="width: 19px" width="19px"/></a>` : ''}
+            ${event.telegramHandle ? `<a href="${event.telegramHandle}" class="text-blue-600 hover:text-blue-700"><i class="fab fa-telegram-plane mr-2"></i></a>` : ''}
+          </div>
+        </div>
+      `;
+
+      container.innerHTML += eventHtml;
+    });
+
+    currentIndex += eventsPerPage;
+    if (currentIndex >= eventsData.length) {
+      document.getElementById('load-more').style.display = 'none';
+    }
+  }
+
+  document.getElementById('load-more').addEventListener('click', renderEvents);
+
+</script> --}}
+
+
+
+
 
     </div>

@@ -429,7 +429,7 @@ function translatePage(targetLanguage,element = document.body) {
     });
 
     // Send the texts for translation
-    fetch('https://translator.attirer.io/translate', {
+    fetch('https://translator.attirer.io/translate/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

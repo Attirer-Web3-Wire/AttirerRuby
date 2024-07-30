@@ -201,6 +201,14 @@ a.post-title-link {
 }
 
 
+.service-page p a {
+    text-decoration: underline;
+}
+
+
+.service-page > p > a {
+    text-decoration: underline;
+}
 
 span.post-card-meta-date {
     float: right;
