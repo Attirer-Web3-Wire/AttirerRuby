@@ -2,8 +2,8 @@
     {{!-- Single Author Page --}}
     {{#author}}
     <div class="term-author">
-        <div class="author-image-placeholder u-placeholder">
-            <img height="100%" class="author-image lazyload" data-src="{{img_url profile_image size="xs"}}"
+        <div class="author-image-placeholder u-placeholder" style="display:flex; justify-content:center; align-items:center;">
+            <img height="40px" width="40px" style="width:40px; height:40px; object-fit:cover;" class="author-image lazyload" data-src="{{img_url profile_image size="xs"}}"
                 src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="{{name}}">
         </div>
         <h1 class="author-name">{{name}}</h1>
